@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html data-theme="mediko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mediko - Login</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+    <body class="font-display flex flex-col min-h-screen relative">
+        <div class="absolute inset-0 bg-center" style="background-image: url('/assets/bg-ornament.png')"></div>
+        <div class="absolute inset-0 bg-[#21B8BB]/10"></div>
+
+        <!-- Content -->
+        <main class="flex-1 flex items-center justify-center bg-gradient-to-b from-white to-[#3AA0B7]/30 py-12 px-4">
+            <div class="container mx-auto px-4">
+                <div class="card bg-white shadow-soft rounded-xl overflow-hidden max-w-md w-full mx-auto">
+                    <div class="w-full max-w-md p-6">
+                        <div class="mb-4 text-center flex items-center justify-center">
+                            <img src="/assets/logo.png" alt="Mediko PPDS" class="h-14 mb-4" />
+                        </div>
+
+                        <form class="space-y-4">
+                            <h2 class="text-xl font-semibold text-gray-800">Register to Mediko</h2>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">Full Name</label>
+                                <input type="text" placeholder="John Doe" class="input input-bordered w-full rounded-lg" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">Email</label>
+                                <input type="email" placeholder="john.doe@gmail.com" class="input input-bordered w-full rounded-lg" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">Date of Birth</label>
+                                <input type="date" class="input input-bordered w-full rounded-lg" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">Domicile</label>
+                                <input type="text" placeholder="ex: Jakarta, Semarang" class="input input-bordered w-full rounded-lg" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">Phone Number</label>
+                                <input type="text" placeholder="ex: +628123456789" class="input input-bordered w-full rounded-lg" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">University of origin</label>
+                                <input type="text" placeholder="ex: Universitas Gadjah Mada" class="input input-bordered w-full rounded-lg" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">Destination of PPDS University</label>
+                                <select class="select select-bordered w-full rounded-lg">
+                                    <option disabled selected>Choose</option>
+                                    <option>Universitas Indonesia</option>
+                                    <option>Universitas Diponegoro</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">Destination of PPDS Major</label>
+                                <select class="select select-bordered w-full rounded-lg">
+                                    <option disabled selected>Choose</option>
+                                    <option>Radiologi</option>
+                                    <option>Bedah Umum</option>
+                                </select>
+                            </div>
+
+                            <button class="btn btn-accent btn-lg text-white text-base font-normal w-full mt-2">Register</button>
+                            <button
+                                type="submit"
+                                class="btn btn-accent btn-lg text-white text-base font-normal w-full disabled:!bg-gray-400 disabled:!text-gray-200 disabled:!cursor-not-allowed"
+                                onclick="this.form.submit(); this.disabled=true;">
+                                Register
+                            </button>
+                            <button
+                                type="submit"
+                                class="btn btn-accent disabled:btn-disabled btn-lg text-white text-base font-normal w-full disabled:!bg-gray-400 disabled:!text-gray-200 disabled:!cursor-not-allowed"
+                                onclick="this.form.submit(); this.disabled=true;">
+                                Register
+                            </button>
+
+                            <p class="text-sm text-gray-600">
+                                Already have an account?
+                                <a href="#" class="text-secondary hover:underline">Login</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Tailwind via Vite -->
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

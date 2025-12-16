@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html data-theme="mediko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mediko - Login</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+    <body class="font-display flex flex-col min-h-screen relative">
+
+        <!-- Content -->
+        <main class="flex-1 flex items-center justify-center bg-gradient-to-b from-white to-[#3AA0B7]/30 py-12 px-4">
+            <div class="container mx-auto px-4">
+                <div class="card bg-white shadow-soft rounded-xl overflow-hidden max-w-md w-full mx-auto">
+    
+                    <div class="w-full max-w-md p-6">
+                        <div class="mb-4 text-center flex items-center justify-center">
+                            <img src="/assets/logo.png" alt="Mediko PPDS" class="h-14 mb-4" />
+                        </div>
+
+                        <form class="space-y-4">
+                            <h2 class="text-xl font-semibold text-gray-800">Login to your account</h2>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">Email</label>
+                                <input type="text" placeholder="John Doe" class="input input-bordered w-full rounded-lg" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-600 mb-2">Password</label>
+                                <input type="password" placeholder="*****" class="input input-bordered w-full rounded-lg" />
+                            </div>
+
+                            <div class="text-right">
+                                <a href="#" class="text-sm text-secondary hover:underline text-right">Forgot Password</a>
+                            </div>
+
+                            <button class="btn btn-accent btn-lg text-white text-base font-normal w-full">Login</button>
+
+                            <p class="text-sm text-gray-600">
+                                Not registered ?
+                                <a href="#" class="text-secondary hover:underline">Create account</a>
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Tailwind via Vite -->
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

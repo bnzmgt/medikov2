@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ sidebarOpen: true }" xmlns="http://www.w3.org/1999/xhtml" data-theme="mediko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard - Digiarch</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.css" />
+        <script src="https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.polyfilled.js"></script>
+    </head>
+
+    <body x-data="{ sidebarOpen: window.innerWidth >= 1024 }" class="h-screen overflow-hidden font-display">
+        <!-- Sidebar -->
+        <aside class="fixed inset-y-0 left-0 z-40 md:w-[330px] bg-[#F9FAFB] flex flex-col justify-between transition-transform duration-300 overflow-hidden" :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
+            <!-- Sidebar Top -->
+            <div class="flex flex-col h-full">
+                <!-- Logo -->
+                <div class="h-16 flex items-center justify-center font-bold text-xl">
+                    <div class="font-bold text-xl">
+                        <img src="/assets/logo.png" alt="Mediko PPDS" class="w-[130px]" />
+                    </div>
+                </div>
+
+                <div class="rounded-xl p-5 w-full max-w-md mx-auto">
+                    <!-- Header -->
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="font-semibold text-lg text-gray-800">VOD PPDS Bidang Interna</h2>
+                            <p class="text-sm text-gray-500">by Mediko</p>
+                        </div>
+                        <span class="badge badge-neutral text-xs px-1 py-1">4/4</span>
+                    </div>
+
+                    <div class="divider my-3"></div>
+
+                    <!-- Video List -->
+                    <ul class="space-y-2">
+                        <!-- Item 1 -->
+                        <li class="flex items-start justify-between p-2 rounded-lg hover:bg-base-200 transition hover:bg-base-200 hover:text-accent">
+                            <div class="flex items-start gap-2">
+                                <i class="ph ph-play-circle text-gray-500 text-lg"></i>
+                                <span class="text-sm text-gray-700">Video 1 – PPDS Bidang Interna</span>
+                            </div>
+                            <i class="ph ph-check-circle text-gray-400 text-lg"></i>
+                        </li>
+
+                        <!-- Item 2 -->
+                        <li class="flex items-start justify-between p-2 rounded-lg hover:bg-base-200 transition">
+                            <div class="flex items-start gap-2">
+                                <i class="ph ph-play-circle text-gray-500 text-lg"></i>
+                                <span class="text-sm text-gray-700">Post Test 2 – PPDS Bidang Interna</span>
+                            </div>
+                            <i class="ph ph-check-circle text-gray-400 text-lg"></i>
+                        </li>
+
+                        <!-- Item 3 (Active) -->
+                        <li class="flex items-start justify-between p-2 rounded-lg bg-accent/10 border border-accent">
+                            <div class="flex items-start gap-2">
+                                <i class="ph ph-play-circle text-accent text-lg animate-pulse"></i>
+                                <span class="text-sm text-accent font-medium">Video 3 - PPDS Bidang Interna</span>
+                            </div>
+                            <i class="ph ph-check-circle text-accent text-lg"></i>
+                        </li>
+
+                        <!-- Item 4 -->
+                        <li class="flex items-start justify-between p-2 rounded-lg hover:bg-base-200 transition">
+                            <div class="flex items-start gap-2">
+                                <i class="ph ph-play-circle text-gray-500 text-lg"></i>
+                                <span class="text-sm text-gray-700">Post Test 2 - PPDS Bidang Interna</span>
+                            </div>
+                            <i class="ph ph-check-circle text-gray-400 text-lg"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Overlay khusus mobile -->
+        <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-30 lg:hidden"></div>
+
+        <!-- Main Content -->
+        <div class="h-screen flex flex-col" :class="sidebarOpen ? 'lg:pl-[330px]' : 'lg:pl-0'">
+            <!-- Header -->
+            <header class="sticky top-0 flex items-center justify-between px-4 h-16 z-50 bg-accent text-white">
+                <button @click="sidebarOpen = !sidebarOpen" class="btn border-0 bg-transparent btn-sm transition-all duration-300 outline-0 shadow-none">
+                    <span class="relative inline-block w-6 h-6">
+                        <i
+                            class="ph ph-arrow-circle-right absolute inset-0 text-2xl transition-all duration-300 text-white"
+                            :class="sidebarOpen ? 'opacity-0 scale-75 rotate-90' : 'opacity-100 scale-100 rotate-0'"></i>
+                        <i
+                            class="ph ph-arrow-circle-left absolute inset-0 text-2xl transition-all duration-300 text-white"
+                            :class="sidebarOpen ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 -rotate-90'"></i>
+                    </span>
+                </button>
+
+                <a href="/pages/dashboard/dashboard-course.html">
+                    <i class="ph ph-x text-2xl"></i>
+                </a>
+            </header>
+
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto">
+                <!-- Video Section -->
+                <div
+                    x-data="{ player: null }"
+                    x-init="
+                    player = new Plyr('#plyr', {
+                        autoplay: false,
+                        controls: ['play-large', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+                    });
+                    "
+                    class="relative w-full bg-black aspect-video lg:h-[calc(100vh-8rem)]">
+                    <div id="plyr" class="plyr__video-embed w-full h-full">
+                        <iframe src="https://www.youtube.com/embed/bTqVqk7FSmY?autoplay=1&modestbranding=1&showinfo=0&controls=1" allowfullscreen allow="autoplay" class="w-full h-full"></iframe>
+                    </div>
+                </div>
+
+                <!-- Intro + Navigation -->
+                <section id="intest" class="p-6 md:p-8 bg-white border-t border-gray-100 mt-8 relative z-10">
+                    <div class="max-w-4xl mx-auto text-center space-y-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Video 3 – PPDS Bidang Interna</h2>
+                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                            Pada video kali ini, kita akan membahas dasar-dasar penanganan penyakit dalam dengan fokus pada studi kasus yang sering muncul dalam ujian UKMPPD. Pastikan kamu menonton
+                            sampai akhir untuk memahami pola soal dan pembahasannya.
+                        </p>
+
+                        <div class="flex justify-between items-center pt-6">
+                            <button class="btn btn-outline gap-2">
+                                <i class="ph ph-arrow-left"></i>
+                                Sebelumnya
+                            </button>
+                            <button class="btn btn-accent text-white gap-2">
+                                Selanjutnya
+                                <i class="ph ph-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="container mx-auto p-6">
+                    <div class="bg-accent/10 flex flex-col md:flex-row justify-between items-center py-4 px-6 rounded-lg mb-6">
+                        <h2 class="text-primary text-lg font-bold mb-4 md:mb-0">Try Out PPDS Bidang Interna</h2>
+                        <a class="btn btn-md btn-primary">Mulai Try Out</a>
+                    </div>
+
+                    <div
+                        x-data="{
+                            active: 1,
+                            total: 10,
+                            statuses: {
+                                1: 'current',
+                                2: 'answered',
+                                3: 'unanswered',
+                                4: 'unanswered',
+                                5: 'answered',
+                            },
+                            getStatusClass(n) {
+                                switch (this.statuses[n]) {
+                                    case 'answered': return 'btn-secondary text-white';
+                                    case 'current': return 'btn-info text-white';
+                                    case 'unanswered': return 'btn-outline text-gray-500';
+                                    default: return 'btn-outline text-gray-500';
+                                }
+                            }
+                        }"
+                        class="flex flex-col lg:flex-row gap-6 min-h-screen mb-6">
+                        <div class="w-full lg:w-3/4 bg-white rounded-xl p-6 shadow-soft">
+                            <div class="flex flex-col lg:flex-row justify-between items-center mb-8" x-data="{ showInfo: false }">
+                                <h2 class="text-3xl font-bold mb-4">
+                                    Soal No
+                                    <span x-text="active"></span>
+                                </h2>
+
+                                <div class="flex gap-2">
+                                    <button class="btn btn-warning btn-sm text-white">
+                                        <i class="ph ph-flag-banner text-lg"></i>
+                                        Ragu-ragu
+                                    </button>
+
+                                    <button @click="showInfo = true" class="btn btn-info btn-sm text-white">
+                                        <i class="ph ph-info text-lg"></i>
+                                        Nilai Normal
+                                    </button>
+                                </div>
+
+                                <!-- Popup Modal -->
+                                <div x-show="showInfo" x-cloak x-transition.opacity @click.self="showInfo = false" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+                                    <div class="bg-white rounded-2xl shadow-xl max-w-3xl w-full relative">
+                                        <div class="p-6">
+                                            <h3 class="text-xl font-semibold text-secondary mb-2">Informasi Nilai Normal</h3>
+                                            <p class="text-gray-700 leading-relaxed mb-6">
+                                                Nilai normal digunakan untuk mengukur tingkat pemahaman peserta. Silakan lanjutkan menjawab pertanyaan sesuai kemampuan Anda.
+                                            </p>
+                                        </div>
+
+                                        <button @click="showInfo = false" class="absolute top-3 right-3 bg-white/80 hover:bg-white text-black w-10 h-10 rounded-full flex items-center justify-center">
+                                            ✕
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-8">
+                                <p class="text-gray-700 mb-8">Pemberian oksigen aliran tinggi konsentrasi tinggi dengan :</p>
+                                <div class="bg-gray-200 h-48 rounded-md"></div>
+                            </div>
+
+                            <div class="mt-6 mb-[50px] space-y-3">
+                                <p class="font-semibold text-gray-700">Jawab :</p>
+
+                                <label class="flex items-center gap-2 border border-[#D9D9D9] rounded-lg py-3.5 px-4 cursor-pointer hover:bg-gray-50">
+                                    <input type="radio" name="answer" class="radio radio-info" />
+                                    <span class="ml-8">A. Kanul binasal</span>
+                                </label>
+
+                                <label class="flex items-center gap-2 border border-[#D9D9D9] rounded-lg py-3.5 px-4 cursor-pointer hover:bg-gray-50">
+                                    <input type="radio" name="answer" class="radio radio-info" />
+                                    <span class="ml-8">B. Sungkup muka</span>
+                                </label>
+
+                                <label class="flex items-center gap-2 border border-[#D9D9D9] rounded-lg py-3.5 px-4 cursor-pointer hover:bg-gray-50">
+                                    <input type="radio" name="answer" class="radio radio-info" />
+                                    <span class="ml-8">C. Sungkup venturi</span>
+                                </label>
+
+                                <label class="flex items-center gap-2 border border-[#D9D9D9] rounded-lg py-3.5 px-4 cursor-pointer hover:bg-gray-50">
+                                    <input type="radio" name="answer" class="radio radio-info" />
+                                    <span class="ml-8">D. Head book</span>
+                                </label>
+
+                                <label class="flex items-center gap-2 border border-[#D9D9D9] rounded-lg py-3.5 px-4 cursor-pointer hover:bg-gray-50">
+                                    <input type="radio" name="answer" class="radio radio-info" />
+                                    <span class="ml-8">E. Nasopharyngeal airway</span>
+                                </label>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <button class="btn btn-outline">
+                                    <i class="ph ph-arrow-left"></i>
+                                    Sebelumnya
+                                </button>
+                                <button class="btn btn-accent text-white">
+                                    Selanjutnya
+                                    <i class="ph ph-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-1/4 bg-white rounded-xl p-8 shadow-soft h-fit self-start">
+                            <div>
+                                <!-- Timer -->
+                                <div class="flex flex-col xl:flex-row justify-between items-center mb-6">
+                                    <p class="text-4xl font-bold text-accent mb-4 xl:mb-0">05:00</p>
+                                    <button class="btn btn-error btn-sm">
+                                        <i class="ph ph-pause"></i>
+                                        Pause
+                                    </button>
+                                </div>
+
+                                <!-- Nomor Soal -->
+                                <div class="grid grid-cols-5 gap-1 gap-y-3 mb-6 place-items-center">
+                                    <!-- Belum dijawab -->
+                                    <button class="btn btn-md w-full btn-tryout-unanswered">1</button>
+                                    <button class="btn btn-md w-full btn-tryout-unanswered">2</button>
+                                    <button class="btn btn-md w-full btn-tryout-unanswered">3</button>
+
+                                    <!-- Dijawab -->
+                                    <button class="btn btn-md w-full btn-tryout-unanswered">4</button>
+                                    <button class="btn btn-md w-full btn-tryout-answered">5</button>
+                                    <button class="btn btn-md w-full btn-tryout-answered">6</button>
+
+                                    <!-- Sedang dikerjakan -->
+                                    <button class="btn btn-md w-full btn-tryout-current">7</button>
+
+                                    <!-- Contoh tambahan -->
+                                    <button class="btn btn-md w-full btn-tryout-unanswered">8</button>
+                                    <button class="btn btn-md w-full btn-tryout-unanswered">9</button>
+                                    <button class="btn btn-md w-full btn-tryout-unanswered">10</button>
+                                </div>
+
+                                <!-- Tombol Selesai -->
+                                <button class="btn btn-accent btn-xl w-full text-white text-base mb-4">
+                                    SELESAI
+                                    <i class="ph ph-notepad text-2xl ml-1"></i>
+                                </button>
+
+                                <!-- Legend -->
+                                <div class="space-y-2 text-sm border-t border-[#F1F2F2] pt-[10px] mt-8">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-4 bg-[#A7A9AC] rounded-sm"></div>
+                                        <span>Belum dijawab</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-4 bg-accent rounded-sm"></div>
+                                        <span>Sudah dijawab</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-4 bg-secondary rounded-sm"></div>
+                                        <span>Sedang dikerjakan</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-4 h-4 bg-error rounded-sm"></div>
+                                        <span>Ragu-ragu</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html data-theme="mediko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Homepage - Digiarch</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    </head>
+    <body class="flex flex-col min-h-screen font-display">
+        <!-- Header -->
+        <header class="bg-base-100 shadow">
+            <div class="container mx-auto flex items-center justify-between py-4 px-6">
+                <!-- Logo -->
+                <div class="font-bold text-xl">Digiarch</div>
+
+                <!-- Menu -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-primary">Home</a>
+                    <a href="#" class="hover:text-primary">About</a>
+                    <a href="#" class="hover:text-primary">Contact</a>
+                </nav>
+
+                <!-- Hamburger (mobile) -->
+                <div class="md:hidden" x-data="{ open: false }">
+                    <button class="btn btn-ghost btn-sm" @click="open = !open">
+                        <span class="material-icons">menu</span>
+                    </button>
+                    <div x-show="open" @click.outside="open=false" class="absolute right-6 mt-2 bg-base-100 rounded-lg shadow-md p-4 space-y-2">
+                        <a href="#" class="block">Home</a>
+                        <a href="#" class="block">About</a>
+                        <a href="#" class="block">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Register button -->
+                <a href="./pages/page-register.html" class="btn btn-primary hidden md:flex">Register</a>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="flex-1 container mx-auto p-6">
+            <section class="text-center py-16">
+                <h1 class="text-4xl font-bold mb-4">Welcome to Digiarch</h1>
+                <p class="text-lg text-gray-600 mb-6">Your gateway to a better digital experience.</p>
+                <a href="./pages/page-register.html" class="btn btn-primary text-white text-base font-normal">Get Started</a>
+            </section>
+
+            <section class="py-16">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <!-- MODE 1: Diskon + Harga Lama -->
+                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                        <div class="relative">
+                            <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
+                            <div class="absolute top-3 left-3 bg-[#0C8BD9] text-white text-xs font-semibold px-3 py-1 rounded-md">Mini Bootcamp UKMP2DG</div>
+                            <div class="absolute bottom-3 right-3 bg-white/90 px-3 py-1 rounded-md shadow text-sm font-medium">drg. Nisrina</div>
+                        </div>
+
+                        <div class="p-4">
+                            <h2 class="text-xl font-semibold text-secondary mb-4">VOD PPDS Bidang Interna</h2>
+                            <div class="flex items-center text-gray-500 text-sm mb-2">
+                                <i class="ph ph-gauge"></i>
+                                28 Lessons
+                            </div>
+                            <p class="text-sm text-gray-500 mb-3">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
+
+                            <!-- Harga dengan diskon -->
+                            <div class="mb-3">
+                                <span class="bg-red-100 text-red-600 text-xs font-semibold px-2 py-1 rounded">50%</span>
+                                <span class="line-through text-gray-400 text-sm ml-1">Rp. 1.500.000</span>
+                                <div class="text-red-600 font-bold text-lg">Rp. 750.000</div>
+                                <p class="text-xs text-gray-500">s/d 01 Oktober 2025</p>
+                            </div>
+
+                            <button class="btn btn-primary text-white text-base font-normal w-full">Daftar Sekarang</button>
+                        </div>
+                    </div>
+
+                    <!-- MODE 2: Harga Normal -->
+                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                        <div class="relative">
+                            <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
+                            <div class="absolute top-3 left-3 bg-[#0C8BD9] text-white text-xs font-semibold px-3 py-1 rounded-md">Mini Bootcamp UKMP2DG</div>
+                            <div class="absolute bottom-3 right-3 bg-white/90 px-3 py-1 rounded-md shadow text-sm font-medium">drg. Nisrina</div>
+                        </div>
+
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800 mb-1">VOD PPDS Bidang Interna</h2>
+                            <div class="flex items-center text-gray-500 text-sm mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5h15v15h-15v-15z" />
+                                </svg>
+                                28 Lessons
+                            </div>
+                            <p class="text-sm text-gray-500 mb-3">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
+
+                            <!-- Harga normal -->
+                            <div class="mb-3">
+                                <div class="text-[#0C8BD9] font-bold text-lg">Rp. 750.000</div>
+                            </div>
+
+                            <button class="btn btn-primary text-white text-base font-normal w-full">Daftar Sekarang</button>
+                        </div>
+                    </div>
+
+                    <!-- MODE 3: Free Course -->
+                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                        <div class="relative">
+                            <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
+                            <div class="absolute top-3 left-3 bg-[#0C8BD9] text-white text-xs font-semibold px-3 py-1 rounded-md">Mini Bootcamp UKMP2DG</div>
+                            <div class="absolute bottom-3 right-3 bg-white/90 px-3 py-1 rounded-md shadow text-sm font-medium">drg. Nisrina</div>
+                        </div>
+
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800 mb-1">VOD PPDS Bidang Interna</h2>
+                            <div class="flex items-center text-gray-500 text-sm mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5h15v15h-15v-15z" />
+                                </svg>
+                                28 Lessons
+                            </div>
+                            <p class="text-sm text-gray-500 mb-3">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
+
+                            <!-- Free course -->
+                            <div class="mb-3">
+                                <div class="text-[#0C8BD9] font-bold text-lg">Free Course</div>
+                            </div>
+
+                            <button class="btn btn-primary text-white text-base font-normal w-full">Daftar Sekarang</button>
+                        </div>
+                    </div>
+                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                        <div class="relative">
+                            <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
+                            <div class="absolute top-3 left-3 bg-[#0C8BD9] text-white text-xs font-semibold px-3 py-1 rounded-md">Mini Bootcamp UKMP2DG</div>
+                            <div class="absolute bottom-3 right-3 bg-white/90 px-3 py-1 rounded-md shadow text-sm font-medium">drg. Nisrina</div>
+                        </div>
+
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-gray-800 mb-1">VOD PPDS Bidang Interna</h2>
+                            <div class="flex items-center text-gray-500 text-sm mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5h15v15h-15v-15z" />
+                                </svg>
+                                28 Lessons
+                            </div>
+                            <p class="text-sm text-gray-500 mb-3">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
+
+                            <!-- Free course -->
+                            <div class="mb-3">
+                                <div class="text-[#0C8BD9] font-bold text-lg">Free Course</div>
+                            </div>
+
+                            <button class="btn btn-primary btn-lg text-white text-base font-normal w-full box-border">Daftar Sekarang</button>
+                            <button class="btn btn-info btn-lg text-white text-base font-normal w-full box-border">Daftar Sekarang</button>
+                            <button class="btn btn-accent btn-lg text-white text-base font-normal w-full box-border">Daftar Sekarang</button>
+                            <button class="btn btn-warning btn-lg text-white text-base font-normal w-full box-border">Daftar Sekarang</button>
+                            <button class="btn btn-error btn-lg text-white text-base font-normal w-full box-border">Daftar Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-16">
+                <div class="container mx-auto flex flex-col lg:flex-row items-start gap-10">
+                    <!-- Bagian Kiri (Deskripsi) -->
+                    <div class="w-full lg:w-2/5">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-3">Fasilitas Mediko PPDS</h2>
+                        <p class="text-gray-500 leading-relaxed">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio assumenda doloremque exercitationem, ratione quis deleniti accusamus eius magni voluptate.
+                        </p>
+                    </div>
+
+                    <!-- Bagian Kanan (Grid Gambar) -->
+                    <div class="w-full lg:w-3/5 space-y-4">
+                        <!-- Baris 1: 2 Kolom -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="relative rounded-2xl overflow-hidden shadow-md">
+                                <img src="/assets/course-image.jpg" alt="Pembahasan Materi" class="w-full h-[267px] object-cover" />
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-white text-sm font-medium">Pembahasan Materi</div>
+                            </div>
+
+                            <div class="relative rounded-2xl overflow-hidden shadow-md">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full h-[267px] object-cover" />
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-white text-sm font-medium">Buku Materi & Handbook Lengkap</div>
+                            </div>
+                        </div>
+
+                        <!-- Baris 2: 4 Kolom -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <div class="flex justify-center overflow-hidden h-[127px] rounded-2xl shadow-md">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full object-cover" />
+                            </div>
+                            <div class="flex justify-center overflow-hidden h-[127px] rounded-2xl shadow-md">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full object-cover" />
+                            </div>
+                            <div class="flex justify-center overflow-hidden h-[127px] rounded-2xl shadow-md">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full object-cover" />
+                            </div>
+                            <div class="flex justify-center overflow-hidden h-[127px] rounded-2xl shadow-md">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="bg-blue-gradient">asdasdas</div>
+            <br />
+            <button class="btn btn-primary text-white text-base font-normal">Place Order</button>
+            <button class="btn btn-warning-gradient text-white text-base font-normal">Pembahasan</button>
+
+            <section class="py-10">
+                <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-2">Password</label>
+                    <input type="password" id="c_password" name="c_password" class="input input-bordered w-full rounded-lg" />
+
+                    <input type="password" class="border-error" />
+
+                    <p class="text-sm text-error mt-1">password salah</p>
+                </div>
+            </section>
+
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-white/50 rounded-full w-10 h-10 flex items-center justify-center">
+                    <i class="ph-fill ph-play-circle text-2xl text-white"></i>
+                </div>
+            </div>
+            <p class="text-success">asd</p>
+            <p class="rmcode absolute top-[15px] right-[20px]"></p>
+
+            <div role="alert" class="alert alert-info alert-soft">
+                <span>12 unread messages. Tap to see.</span>
+            </div>
+            <div role="alert" class="alert alert-success alert-soft">
+                <span>Your purchase has been confirmed!</span>
+            </div>
+            <div role="alert" class="alert alert-warning alert-soft">
+                <span>Warning: Invalid email address!</span>
+            </div>
+            <div role="alert" class="alert alert-error alert-soft">
+                <span>Error! Task failed successfully.</span>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-primary text-white">
+            <div class="container mx-auto">
+                <div class="py-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <!-- Logo & Social -->
+                    <div>
+                        <div class="mb-6">
+                            <img src="/assets/logo-white.png" alt="Mediko PPDS" class="w-[170px]" />
+                        </div>
+                        <div class="flex space-x-4 text-white text-xl">
+                            <a href="#" class="hover:text-gray-200"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="hover:text-gray-200"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="hover:text-gray-200"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-gray-200"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-flow justify-between">
+                        <!-- Our Company -->
+                        <div>
+                            <h3 class="font-semibold text-lg mb-4">Our Company</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="hover:underline">Home</a></li>
+                                <li><a href="#" class="hover:underline">Course</a></li>
+                                <li><a href="#" class="hover:underline">FAQ</a></li>
+                                <li><a href="#" class="hover:underline">Contact Us</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Get in touch -->
+                        <div>
+                            <h3 class="font-semibold text-lg mb-4">Get in touch</h3>
+                            <p class="text-base font-light">
+                                Jl. Bukit Cemara Residence No.4b,
+                                <br />
+                                Bulusan, Kec. Tembalang, Kota Semarang,
+                                <br />
+                                Jawa Tengah 50278
+                            </p>
+                            <p class="mt-3 text-sm">Phone: (024) 123456</p>
+                            <p class="text-sm">Email: info@mediko.id</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="bg-accent">
+                <div class="container mx-auto">
+                    <div class="py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-100">
+                        <p>Copyright © 2025 Mediko ID. All Rights Reserved</p>
+                        <a href="#" class="mt-2 md:mt-0 hover:underline">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Tailwind via Vite -->
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

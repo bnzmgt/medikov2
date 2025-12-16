@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html data-theme="mediko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Register - Mediko PPDS</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    </head>
+    <body class="min-h-screen flex font-display">
+        <!-- Left Section -->
+        <div class="w-full py-10 md:py-24 md:w-[50%] lg:w-[40%] flex flex-col justify-center items-center px-16">
+            <div class="w-full max-w-md">
+                <div class="mb-4 text-center flex items-center justify-center">
+                    <img src="/assets/logo.png" alt="Mediko PPDS" class="h-16 mb-4" />
+                </div>
+
+                <form class="space-y-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Register to Mediko</h2>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-2">Full Name</label>
+                        <input type="text" placeholder="John Doe" class="input input-bordered w-full rounded-lg" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-2">Email</label>
+                        <input type="email" placeholder="john.doe@gmail.com" class="input input-bordered w-full rounded-lg" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-2">Date of Birth</label>
+                        <input type="date" class="input input-bordered w-full rounded-lg" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-2">Domicile</label>
+                        <input type="text" placeholder="ex: Jakarta, Semarang" class="input input-bordered w-full rounded-lg" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-2">Phone Number</label>
+                        <input type="text" placeholder="ex: +628123456789" class="input input-bordered w-full rounded-lg" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-2">University of origin</label>
+                        <input type="text" placeholder="ex: Universitas Gadjah Mada" class="input input-bordered w-full rounded-lg" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-2">Destination of PPDS University</label>
+                        <select class="select select-bordered w-full rounded-lg">
+                            <option disabled selected>Choose</option>
+                            <option>Universitas Indonesia</option>
+                            <option>Universitas Diponegoro</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-600 mb-2">Destination of PPDS Major</label>
+                        <select class="select select-bordered w-full rounded-lg">
+                            <option disabled selected>Choose</option>
+                            <option>Radiologi</option>
+                            <option>Bedah Umum</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" class="checkbox checkbox-primary" />
+                        <span class="text-sm text-gray-600">
+                            I have read the
+                            <a href="#" class="text-secondary hover:underline">Terms and Conditions</a>
+                        </span>
+                    </div>
+
+                    <button class="btn btn-accent btn-lg text-white text-base font-normal w-full">Register</button>
+
+                    <p class="text-sm text-gray-600">
+                        Already have an account?
+                        <a href="#" class="text-secondary hover:underline">Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="hidden md:block md:w-[50%] lg:w-[60%] relative">
+            <img src="/assets/register-image.jpg" alt="Lab Scientist" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-[#0072B1]/70 flex flex-col justify-center items-center text-white p-10">
+                <div class="max-w-md">
+                    <h2 class="text-3xl font-semibold mb-3 text-white">Experience Limitless Access to Great Learning</h2>
+                    <p class="text-sm opacity-90 text-white">— Steve Jobs</p>
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

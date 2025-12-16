@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html data-theme="mediko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mediko - Homepage</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+    <body class="font-display min-h-screen">
+        <!-- Header -->
+        <header
+            x-data="{ scrolled: false }"
+            x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 10 })"
+            :class="scrolled ? 'shadow-sm bg-base-100/95 backdrop-blur-md' : 'bg-base-100'"
+            class="sticky top-0 w-full z-20 transition-all duration-300 ease-in-out">
+            <div :class="scrolled ? 'py-2' : 'py-4'" class="container mx-auto flex items-center justify-between px-6 transition-all duration-300 ease-in-out">
+                <!-- Logo -->
+                <div class="font-bold text-xl">
+                    <img src="/assets/logo.png" alt="Mediko PPDS" class="w-[130px]" />
+                </div>
+
+                <!-- Menu -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="text-black hover:text-primary transition-colors duration-200">Home</a>
+                    <a href="#" class="text-black hover:text-primary transition-colors duration-200">Course</a>
+                    <a href="#" class="text-black hover:text-primary transition-colors duration-200">FAQ</a>
+                    <a href="#" class="text-black hover:text-primary transition-colors duration-200">Contact Us</a>
+                </nav>
+
+                <!-- Hamburger (Mobile) -->
+                <div class="md:hidden" x-data="{ open: false }">
+                    <button class="btn btn-ghost btn-sm z-50 relative" @click="open = !open">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </button>
+
+                    <!-- Overlay Mobile Menu -->
+                    <div
+                        x-show="open"
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 translate-y-[-10px]"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-200"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 translate-y-[-10px]"
+                        @click.outside="open=false"
+                        class="fixed inset-0 bg-base-100/95 backdrop-blur-sm z-40 flex flex-col items-center justify-center space-y-6">
+                        <a href="#" class="text-xl font-semibold text-gray-800 hover:text-primary transition-all duration-200 hover:scale-105">Home</a>
+                        <a href="#" class="text-xl font-semibold text-gray-800 hover:text-primary transition-all duration-200 hover:scale-105">Course</a>
+                        <a href="#" class="text-xl font-semibold text-gray-800 hover:text-primary transition-all duration-200 hover:scale-105">FAQ</a>
+                        <a href="#" class="text-xl font-semibold text-gray-800 hover:text-primary transition-all duration-200 hover:scale-105">Contact Us</a>
+                        <button @click="open = false" class="mt-6 px-6 py-2 rounded-lg text-error text-2xl hover:bg-primary-focus transition-all duration-200">
+                            <i class="ph ph-x"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Login/Register -->
+                <a href="./pages/page-register.html" class="btn btn-primary hidden md:flex">Login/Register</a>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="py-12 xl:min-h-screen">
+            <div class="container mx-auto px-4">
+                <section class="privacy-policy px-6 py-10 max-w-4xl mx-auto leading-relaxed text-gray-800">
+                    <h1 class="text-3xl font-semibold mb-6 text-center">Privacy Policy - MedikoPPDS by Mediko</h1>
+                    <p>
+                        This Privacy Policy describes Our policies and procedures on the collection, use, and disclosure of Your information when You use the Service and tells You about Your privacy
+                        rights and how the law protects You.
+                    </p>
+                    <p>
+                        We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.
+                    </p>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Interpretation and Definitions</h2>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Interpretation</h3>
+                    <p>
+                        The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of
+                        whether they appear in singular or plural.
+                    </p>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Definitions</h3>
+                    <p>For the purposes of this Privacy Policy:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>
+                            <strong>Account</strong>
+                            means a unique account created for You to access our Service or parts of our Service.
+                        </li>
+                        <li>
+                            <strong>Company</strong>
+                            (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to PT Umma Bright Indonesia, Jl. Sawo Raya No.3, RT.004/RW.004, Cibodasari, Kec.
+                            Cibodas, Kota Tangerang, Banten 15138.
+                        </li>
+                        <li>
+                            <strong>Cookies</strong>
+                            are small files placed on Your computer or mobile device by a website or application, containing details of Your browsing history among its many uses.
+                        </li>
+                        <li>
+                            <strong>Country</strong>
+                            refers to: Indonesia.
+                        </li>
+                        <li>
+                            <strong>Device</strong>
+                            means any device that can access the Service such as a computer, cellphone, or digital tablet.
+                        </li>
+                        <li>
+                            <strong>Personal Data</strong>
+                            is any information that relates to an identified or identifiable individual.
+                        </li>
+                        <li>
+                            <strong>Service</strong>
+                            refers to the website and applications.
+                        </li>
+                        <li>
+                            <strong>Service Provider</strong>
+                            means any natural or legal person who processes data on behalf of the Company.
+                        </li>
+                        <li>
+                            <strong>Third-party Social Media Service</strong>
+                            refers to any social network website or application through which a User can log in or create an account to use the Service.
+                        </li>
+                        <li>
+                            <strong>Usage Data</strong>
+                            refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself.
+                        </li>
+                        <li>
+                            <strong>Website and Applications</strong>
+                            refers to Umeds by Medikoppds, accessible from
+                            <a href="https://medikoppds.id" class="text-blue-600 hover:underline">medikoppds.id</a>
+                            .
+                        </li>
+                        <li>
+                            <strong>You</strong>
+                            means the individual accessing or using the Service, or the company or other legal entity on behalf of which such individual is accessing or using the Service.
+                        </li>
+                    </ul>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Collecting and Using Your Personal Data</h2>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Types of Data Collected</h3>
+                    <p><strong>Personal Data</strong></p>
+                    <p>
+                        While using Our Service, We may ask You to provide certain personally identifiable information that can be used to contact or identify You. Personally identifiable information
+                        may include:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Email address</li>
+                        <li>First name and last name</li>
+                        <li>Phone number</li>
+                        <li>Usage Data</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Usage Data</h3>
+                    <p>
+                        Usage Data is collected automatically when using the Service and may include information such as IP address, browser type, pages visited, time spent, device type, and other
+                        diagnostic data.
+                    </p>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Information from Third-Party Social Media Services</h3>
+                    <p>The Company allows You to create an account and log in using:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Google</li>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                    </ul>
+                    <p>
+                        If You register or grant access through such services, We may collect Personal Data already associated with Your Third-Party account such as Your name, email, and contact list.
+                    </p>
+
+                    <h3 class="text-xl font-semibold mt-6 mb-2">Tracking Technologies and Cookies</h3>
+                    <p>We use Cookies and similar tracking technologies to monitor activity and improve Our Service. These may include Cookies, Flash Cookies, and Web Beacons.</p>
+                    <p>
+                        Cookies can be "Persistent" or "Session" types. Learn more about cookies here:
+                        <a href="https://www.freeprivacypolicy.com/blog/sample-cookies-policy-template/" class="text-blue-600 hover:underline">Use of Cookies by Free Privacy Policy</a>
+                        .
+                    </p>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Use of Your Personal Data</h2>
+                    <p>The Company may use Personal Data for the following purposes:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>To provide and maintain our Service.</li>
+                        <li>To manage Your Account and registration.</li>
+                        <li>For the performance of a contract.</li>
+                        <li>To contact You via email, phone, or notifications.</li>
+                        <li>To provide You with updates and offers related to our services.</li>
+                        <li>To manage Your requests.</li>
+                        <li>For business transfers or organizational changes.</li>
+                        <li>For analysis, marketing, and improvement of Service quality.</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Retention of Your Personal Data</h2>
+                    <p>We retain Personal Data only for as long as necessary to fulfill the purposes in this Policy, comply with legal obligations, and resolve disputes.</p>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Transfer of Your Personal Data</h2>
+                    <p>Your information may be transferred and maintained on computers located outside of Your jurisdiction. By using the Service, You consent to such transfer.</p>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Disclosure of Your Personal Data</h2>
+                    <p>The Company may disclose Your data in cases such as mergers, legal obligations, or protection of Company rights and public safety.</p>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Security of Your Personal Data</h2>
+                    <p>While We strive to use commercially acceptable means to protect Your Personal Data, no method of transmission over the Internet or electronic storage is 100% secure.</p>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Children's Privacy</h2>
+                    <p>
+                        Our Service does not address anyone under the age of 13. We do not knowingly collect personal data from minors. If you believe your child has provided us with data, please
+                        contact us.
+                    </p>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Links to Other Websites</h2>
+                    <p>
+                        Our Service may contain links to third-party websites not operated by Us. We advise reviewing their privacy policies as We hold no responsibility over their content or
+                        practices.
+                    </p>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Changes to this Privacy Policy</h2>
+                    <p>We may update this Privacy Policy from time to time. Updates will be posted on this page, and the “Last updated” date will be revised accordingly.</p>
+
+                    <h2 class="text-2xl font-semibold mt-10 mb-4">Contact Us</h2>
+                    <p>If you have any questions about this Privacy Policy, You can contact us at:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>
+                            By email:
+                            <a href="mailto:staf@medikoppds.id" class="text-blue-600 hover:underline">staf@medikoppds.id</a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-primary text-white">
+            <div class="container mx-auto">
+                <div class="px-6 xl:px-0 py-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <!-- Logo & Social -->
+                    <div>
+                        <div class="mb-9">
+                            <img src="/assets/logo-white.png" alt="Mediko PPDS" class="w-[170px]" />
+                        </div>
+                        <div class="flex space-x-6 text-white text-xl">
+                            <a href="#" class="hover:text-gray-200"><i class="ph ph-instagram-logo text-2xl"></i></a>
+                            <a href="#" class="hover:text-gray-200"><i class="ph ph-facebook-logo text-2xl"></i></a>
+                            <a href="#" class="hover:text-gray-200"><i class="ph ph-twitter-logo text-2xl"></i></a>
+                            <a href="#" class="hover:text-gray-200"><i class="ph ph-linkedin-logo text-2xl"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row justify-between">
+                        <!-- Our Company -->
+                        <div class="mb-8 md:mb-0">
+                            <h3 class="font-semibold text-lg text-white mb-4">Our Company</h3>
+                            <ul class="space-y-2">
+                                <li><a href="#" class="hover:underline">Home</a></li>
+                                <li><a href="#" class="hover:underline">Course</a></li>
+                                <li><a href="#" class="hover:underline">FAQ</a></li>
+                                <li><a href="#" class="hover:underline">Contact Us</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Get in touch -->
+                        <div>
+                            <h3 class="font-semibold text-lg text-white mb-4">Get in touch</h3>
+                            <p class="text-base font-light text-white">
+                                Jl. Bukit Cemara Residence No.4b,
+                                <br />
+                                Bulusan, Kec. Tembalang, Kota Semarang,
+                                <br />
+                                Jawa Tengah 50278
+                            </p>
+                            <p class="mt-3 text-base text-white">Phone: (024) 123456</p>
+                            <p class="text-base text-white">Email: info@mediko.id</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="bg-accent">
+                <div class="container mx-auto px-6 xl:px-0">
+                    <div class="py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-100">
+                        <p class="text-white">Copyright © 2025 Mediko ID. All Rights Reserved</p>
+                        <a href="#" class="mt-2 md:mt-0 hover:underline">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Tailwind via Vite -->
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

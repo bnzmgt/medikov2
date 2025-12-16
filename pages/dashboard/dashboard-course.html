@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ sidebarOpen: true }" xmlns="http://www.w3.org/1999/xhtml" data-theme="mediko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard - Digiarch</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js" defer></script>
+    </head>
+
+    <body x-data="{ sidebarOpen: window.innerWidth >= 1024 }" class="h-screen flex overflow-hidden font-display">
+        <!-- Sidebar -->
+        <aside class="bg-[#F9FAFB] flex flex-col justify-between transition-all duration-300 h-full lg:static inset-y-0 left-0 z-40 overflow-hidden" :class="sidebarOpen ? 'w-[220px]' : 'w-0 md:w-16'">
+            <!-- Sidebar Top -->
+            <div class="flex flex-col h-full">
+                <!-- Logo -->
+                <div class="h-16 flex items-center justify-center font-bold text-xl">
+                    <a href="" class="font-bold text-xl">
+                        <img src="/assets/logo.png" alt="Mediko PPDS" class="w-[130px]" />
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                    <a href="./dashboard.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-squares-four text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Dashboard</span>
+                    </a>
+
+                    <a href="./dashboard-course.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300 active">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-book-bookmark text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">My Course</span>
+                    </a>
+
+                    <a href="./dashboard-materials.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-notebook text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Open Material</span>
+                    </a>
+
+                    <a href="./dashboard-tryout.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-list-checks text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Try Out</span>
+                    </a>
+
+                    <a href="./dashboard-transaction.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-scroll text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Transaction History</span>
+                    </a>
+
+                    <a href="#" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-sign-out text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Sign Out</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Overlay khusus mobile -->
+        <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-30 lg:hidden"></div>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <!-- Header -->
+            <header class="sticky top-0 flex items-center justify-between px-4 h-16 z-20 bg-white">
+                <button @click="sidebarOpen = !sidebarOpen" class="btn border-0 bg-transparent btn-sm transition-all duration-300 ease-in-out">
+                    <!-- Icon Wrapper -->
+                    <span class="relative inline-block w-6 h-6">
+                        <!-- Menu Icon (shown when sidebar closed) -->
+                        <i
+                            class="ph ph-arrow-circle-right absolute inset-0 text-xl transition-all duration-300"
+                            :class="sidebarOpen ? 'opacity-0 scale-75 rotate-90' : 'opacity-100 scale-100 rotate-0'"></i>
+
+                        <!-- X Icon (shown when sidebar open) -->
+                        <i
+                            class="ph ph-arrow-circle-left absolute inset-0 text-xl transition-all duration-300"
+                            :class="sidebarOpen ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 -rotate-90'"></i>
+                    </span>
+                </button>
+
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar mr-2 md:mr-4">
+                        <div class="w-10 rounded-full">
+                            <img alt="Profile" src="https://i.pravatar.cc/100?img=3" />
+                        </div>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-56 space-y-2 shadow-soft">
+                        <li class="border-b border-base-300 text-left mb-2">
+                            <div class="flex flex-col items-start mb-2 gap-0">
+                                <span class="font-normal text-base truncate max-w-44">Joyko Kenko</span>
+                                <span class="text-sm text-gray-500 truncate max-w-44">asdasdasdasdjoyko.kenko@example.com</span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="./dashboard-profile.html" class="flex items-center gap-3 text-sm">
+                                <i class="ph ph-user-circle text-base"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./index.html" class="flex items-center gap-3 text-error text-sm">
+                                <i class="ph ph-sign-out text-base"></i>
+                                Sign Out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div id="datas" class="pt-6 pb-10 md:pb-20 lg:px-6 xl:px-10 overflow-y-auto flex-1 bg-white">
+                <div class="container mx-auto px-6">
+                    <h2 class="text-xl font-bold text-secondary border-b border-secondary pb-6 mb-6">My Course</h2>
+
+                    <div id="data-act">
+                        <div class="py-6 overflow-y-auto flex-1 bg-white">
+                            <!-- Search / Filter -->
+                            <div class="mb-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-1">
+                                <div id="data-search" class="search form-control w-full md:w-[280px] rounded-lg">
+                                    <span class="flex md:hidden text-sm text-gray-600 mr-5 mb-2">Search</span>
+                                    <label class="input input-bordered flex items-center gap-2 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M9.965 11.026a5.5 5.5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 6.5a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <input type="text" placeholder="Search forum..." class="grow rounded-lg" />
+                                    </label>
+                                </div>
+                                <div id="data-sort" class="sort flex flex-col md:flex-row items-start md:items-center gap-2 w-full md:w-auto justify-end">
+                                    <span class="text-sm text-gray-600 mr-5">Sort by</span>
+                                    <select class="select select-bordered w-full md:w-48 rounded-lg">
+                                        <option disabled selected>Choose...</option>
+                                        <option>Newest</option>
+                                        <option>Oldest</option>
+                                        <option>Most Popular</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="data-list" class="list grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                        <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                            <div class="relative">
+                                <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                            </div>
+
+                            <div class="p-4">
+                                <h2 class="title text-xl font-semibold text-secondary mb-4">
+                                    <a href="./dashboard-course-detail-video.html" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna</a>
+                                </h2>
+                                <div class="lessons flex items-center text-sm mb-5">
+                                    <i class="ph ph-book-bookmark text-lg mr-1"></i>
+                                    28 Lessons
+                                </div>
+                                <div class="mb-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-sm">In progress</span>
+                                        <span class="text-sm">40%</span>
+                                    </div>
+                                    <progress class="progress progress-primary w-full" value="40" max="100"></progress>
+                                </div>
+
+                                <button class="btn btn-accent btn-lg text-white text-base font-normal w-full box-border">Learn Now</button>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                            <div class="relative">
+                                <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                            </div>
+
+                            <div class="p-4">
+                                <h2 class="title text-xl font-semibold text-secondary mb-4">
+                                    <a href="" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna 11</a>
+                                </h2>
+                                <div class="lessons flex items-center text-sm mb-5">
+                                    <i class="ph ph-book-bookmark text-lg mr-1"></i>
+                                    28 Lessons
+                                </div>
+                                <div class="mb-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-sm">Completed</span>
+                                        <span class="text-sm">100%</span>
+                                    </div>
+                                    <progress class="progress progress-primary w-full" value="100" max="100"></progress>
+                                </div>
+
+                                <button class="btn btn-soft btn-lg text-white text-base font-normal w-full box-border">Completed</button>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                            <div class="relative">
+                                <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                            </div>
+
+                            <div class="p-4">
+                                <h2 class="title text-xl font-semibold text-secondary mb-4">
+                                    <a href="./dashboard-course-detail-video.html" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna</a>
+                                </h2>
+                                <div class="lessons flex items-center text-sm mb-5">
+                                    <i class="ph ph-book-bookmark text-lg mr-1"></i>
+                                    28 Lessons
+                                </div>
+                                <div class="mb-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-sm">Completed</span>
+                                        <span class="text-sm">100%</span>
+                                    </div>
+                                    <progress class="progress progress-primary w-full" value="100" max="100"></progress>
+                                </div>
+
+                                <button class="btn btn-soft btn-lg text-white text-base font-normal w-full box-border">Completed</button>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                            <div class="relative">
+                                <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                            </div>
+
+                            <div class="p-4">
+                                <h2 class="title text-xl font-semibold text-secondary mb-4">
+                                    <a href="./dashboard-course-detail-video.html" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna</a>
+                                </h2>
+                                <div class="lessons flex items-center text-sm mb-5">
+                                    <i class="ph ph-book-bookmark text-lg mr-1"></i>
+                                    28 Lessons
+                                </div>
+                                <div class="mb-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-sm">Completed</span>
+                                        <span class="text-sm">100%</span>
+                                    </div>
+                                    <progress class="progress progress-primary w-full" value="100" max="100"></progress>
+                                </div>
+
+                                <button class="btn btn-soft btn-lg text-white text-base font-normal w-full box-border">Completed</button>
+                            </div>
+                        </div>
+
+                        <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                            <div class="relative">
+                                <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                            </div>
+
+                            <div class="p-4">
+                                <h2 class="title text-xl font-semibold text-secondary mb-4">
+                                    <a href="./dashboard-course-detail-video.html" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna</a>
+                                </h2>
+                                <div class="lessons flex items-center text-sm mb-5">
+                                    <i class="ph ph-book-bookmark text-lg mr-1"></i>
+                                    28 Lessons
+                                </div>
+                                <div class="mb-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-sm">Completed</span>
+                                        <span class="text-sm">100%</span>
+                                    </div>
+                                    <progress class="progress progress-primary w-full" value="100" max="100"></progress>
+                                </div>
+
+                                <button class="btn btn-soft btn-lg text-white text-base font-normal w-full box-border">Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full flex justify-center py-[100px]">
+                        <div class="flex flex-wrap justify-center items-center gap-2 md:gap-3" id="pagination-wrapper">
+                            <button class="btn btn-sm md:btn-md px-8 prev">Prev</button>
+                            <ul class="pagination flex flex-wrap justify-center items-center gap-2 md:gap-3">
+                                <li>
+                                    <a href="#" class="page prev btn btn-sm md:btn-md mr-3 md:mr-5 px-8">Prev</a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="page btn btn-sm md:btn-md btn-active">1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="page btn btn-sm md:btn-md">2</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="page btn btn-sm md:btn-md">3</a>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="page next btn btn-sm md:btn-md ml-3 md:ml-5 px-8">Next</a>
+                                </li>
+                            </ul>
+                            <button class="btn btn-sm md:btn-md px-8 next">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script type="module" src="/src/main.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const options = {
+                    valueNames: ["title", "description", "lessons", "price", { data: ["date", "popularity"] }],
+                    page: 1,
+                    pagination: {
+                        outerWindow: 1,
+                        innerWindow: 1,
+                        item: function (page) {
+                            const list = this.list;
+                            const currentPage = list.i;
+                            const activeClass = page === currentPage ? "btn-active" : "";
+                            return `<li><a class="page btn btn-sm md:btn-md ${activeClass}" href="javascript:void(0)" data-page="${page}">${page}</a></li>`;
+                        },
+                    },
+                };
+
+                const courseList = new List("datas", options);
+
+                const prevBtns = document.querySelectorAll(".prev");
+                const nextBtns = document.querySelectorAll(".next");
+
+                function updatePrevNextState() {
+                    const totalPages = Math.ceil(courseList.matchingItems.length / courseList.page);
+                    prevBtns.forEach(btn => btn.classList.toggle("btn-disabled", courseList.i <= 1));
+                    nextBtns.forEach(btn => btn.classList.toggle("btn-disabled", courseList.i >= totalPages));
+                }
+
+                prevBtns.forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        e.preventDefault();
+                        const prevPage = Math.max(courseList.i - 1, 1);
+                        courseList.show((prevPage - 1) * courseList.page, courseList.page);
+                        courseList.i = prevPage;
+                        courseList.update();
+                    });
+                });
+
+                nextBtns.forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        e.preventDefault();
+                        const totalPages = Math.ceil(courseList.matchingItems.length / courseList.page);
+                        const nextPage = Math.min(courseList.i + 1, totalPages);
+                        courseList.show((nextPage - 1) * courseList.page, courseList.page);
+                        courseList.i = nextPage;
+                        courseList.update();
+                    });
+                });
+
+                courseList.on("updated", updatePrevNextState);
+                setTimeout(updatePrevNextState, 200);
+
+                // sorting
+                const sortSelect = document.querySelector(".sort");
+                sortSelect.addEventListener("change", e => {
+                    const val = e.target.value;
+
+                    switch (val) {
+                        case "Newest":
+                            courseList.sort("date", {
+                                sortFunction: (a, b) => new Date(b.elm.dataset.date) - new Date(a.elm.dataset.date),
+                            });
+                            break;
+                        case "Oldest":
+                            courseList.sort("date", {
+                                sortFunction: (a, b) => new Date(a.elm.dataset.date) - new Date(b.elm.dataset.date),
+                            });
+                            break;
+                        case "Most Popular":
+                            courseList.sort("popularity", {
+                                sortFunction: (a, b) => parseInt(b.elm.dataset.popularity) - parseInt(a.elm.dataset.popularity),
+                            });
+                            break;
+                        default:
+                            courseList.sort("title", { order: "asc" });
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

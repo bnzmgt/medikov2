@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html data-theme="mediko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Success - Mediko</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+    <body class="font-display flex flex-col min-h-screen">
+        <!-- Header -->
+        <header
+            x-data="{ scrolled: false }"
+            x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 10 })"
+            :class="scrolled ? 'shadow-sm bg-base-100/95 backdrop-blur-md' : 'bg-base-100'"
+            class="sticky top-0 w-full z-20 transition-all duration-300 ease-in-out">
+            <div :class="scrolled ? 'py-2' : 'py-4'" class="container mx-auto flex items-center justify-center px-6 transition-all duration-300 ease-in-out">
+                <!-- Logo -->
+                <div class="font-bold text-xl">
+                    <img src="/assets/logo.png" alt="Mediko PPDS" class="w-[130px]" />
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="flex-grow">
+            <section
+                class="relative flex flex-col justify-center bg-cover bg-center bg-no-repeat min-h-[232px] px-6 md:px-12 lg:px-20"
+                style="background-image: url('/assets/top-section-bg.svg')"></section>
+
+            <div class="container mx-auto px-6 z-10 relative">
+                <section class="max-w-full lg:max-w-2xl mx-auto lg:px-4 py-10 grid grid-cols-1 gap-6 -mt-30">
+                    <!-- Left side - Product & Price -->
+                    <div class="md:col-span-2 bg-white shadow-soft rounded-2xl p-6">
+                        <div class="text-center">
+                            <i class="ph ph-seal-check text-6xl text-primary"></i>
+                            <h2 class="text-xl font-bold text-primary my-2">Payment Successful</h2>
+                            <p class="text-sm">Thank you for your purchase</p>
+                        </div>
+
+                        <div class="space-y-3 text-base font-medium mt-10">
+                            <div class="product space-y-2 border-b border-[#F1F1F3] pb-4 mb-4">
+                                <div class="flex justify-between text-base">
+                                    <span>Amount paid</span>
+                                    <span class="font-medium">Rp. 1.500.000</span>
+                                </div>
+                            </div>
+
+                            <div class="discount flex justify-between border-b border-[#F1F1F3] pb-4 mb-4 text-base">
+                                <span>Date & Time</span>
+                                <span>September 25, 2025, 22.00 PM</span>
+                            </div>
+
+                            <div class="subtotal flex justify-between border-b border-[#F1F1F3] pb-4 mb-4 text-base">
+                                <span>Reference Number</span>
+                                <span class="font-medium">12345678</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center py-10">
+                            <button class="btn btn-warning btn-lg text-white text-base font-normal box-border w-full md:w-fit md:min-w-[270px]">
+                                Back to Homepage
+                                <i class="ph ph-arrow-right text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-primary text-white mt-auto">
+            <!-- Bottom bar -->
+            <div class="bg-accent">
+                <div class="container mx-auto px-6 xl:px-0">
+                    <div class="py-6 flex flex-col md:flex-row justify-center items-center text-sm text-gray-100">
+                        <p class="text-white">Copyright © 2025 Mediko ID. All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Tailwind via Vite -->
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

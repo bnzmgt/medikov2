@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ sidebarOpen: true }" xmlns="http://www.w3.org/1999/xhtml" data-theme="mediko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard - Digiarch</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    </head>
+
+    <body x-data="{ sidebarOpen: window.innerWidth >= 1024 }" class="h-screen flex overflow-hidden font-display">
+        <!-- Sidebar -->
+        <aside class="bg-[#F9FAFB] flex flex-col justify-between transition-all duration-300 h-full lg:static inset-y-0 left-0 z-40 overflow-hidden" :class="sidebarOpen ? 'w-[300px]' : 'w-0 md:w-16'">
+            <!-- Sidebar Top -->
+            <div class="flex flex-col h-full">
+                <!-- Logo -->
+                <div class="h-16 flex items-center justify-center font-bold text-xl">
+                    <a href="" class="font-bold text-xl">
+                        <img src="/assets/logo.png" alt="Mediko PPDS" class="w-[130px]" />
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                    <a href="./dashboard.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-squares-four text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Dashboard</span>
+                    </a>
+
+                    <a href="./dashboard-course.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300 active">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-book-bookmark text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">My Course</span>
+                    </a>
+
+                    <a href="./dashboard-materials.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-notebook text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Open Material</span>
+                    </a>
+
+                    <a href="./dashboard-tryout.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-list-checks text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Try Out</span>
+                    </a>
+
+                    <a href="./dashboard-transaction.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-scroll text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Transaction History</span>
+                    </a>
+
+                    <a href="#" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-sign-out text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Sign Out</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Overlay khusus mobile -->
+        <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-30 lg:hidden"></div>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <!-- Header -->
+            <header class="sticky top-0 flex items-center justify-between px-4 h-16 z-50 bg-accent">
+                <!-- Collapse Button -->
+                <button @click="sidebarOpen = !sidebarOpen" class="btn border-0 bg-transparent btn-sm transition-all duration-300 ease-in-out outline-0 shadow-none">
+                    <!-- Icon Wrapper -->
+                    <span class="relative inline-block w-6 h-6">
+                        <!-- Menu Icon (shown when sidebar closed) -->
+                        <i
+                            class="ph ph-arrow-circle-right absolute inset-0 text-2xl transition-all duration-300 text-white"
+                            :class="sidebarOpen ? 'opacity-0 scale-75 rotate-90' : 'opacity-100 scale-100 rotate-0'"></i>
+
+                        <!-- X Icon (shown when sidebar open) -->
+                        <i
+                            class="ph ph-arrow-circle-left absolute inset-0 text-2xl transition-all duration-300 text-white"
+                            :class="sidebarOpen ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 -rotate-90'"></i>
+                    </span>
+                </button>
+
+                <div>
+                    <a href="/pages/dashboard/dashboard-course.html"><i class="ph ph-x text-2xl text-white"></i></a>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="pt-6 pb-10 md:pb-20 lg:px-6 xl:px-10 overflow-y-auto flex-1 bg-white">
+                <div class="min-h-screen px-4 lg:px-4 lg:p-6">
+                    <!-- Header Box -->
+                    <div class="bg-white rounded-xl shadow-soft p-6 flex flex-col xl:flex-row md:items-start md:justify-between mb-6">
+                        <div class="flex mb-10 xl:mb-0">
+                            <div class="flex justify-center items-center gap-3 w-10 h-10 rounded-full bg-[#21B8BB]/15 mr-5">
+                                <i class="ph ph-files text-xl text-accent"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-black mb-3">Try out - Anestesti PPDS</h2>
+                                <p class="text-sm text-gray-500">Senin, 29 September 2025, 19:00:00</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap w-full xl:w-auto justify-between xl:justify-center items-start gap-4 mt-4 md:mt-0">
+                            <div class="space-y-2 xl:space-y-3.5">
+                                <div class="flex items-center justify-around gap-2">
+                                    <i class="ph ph-check-circle text-accent text-2xl"></i>
+                                    <p class="text-sm text-gray-700">Jawaban Benar</p>
+                                    <span class="text-sm font-semibold ml-20">2/50</span>
+                                </div>
+                                <div class="flex items-center justify-around gap-2">
+                                    <i class="ph ph-x-circle text-error text-2xl"></i>
+
+                                    <p class="text-sm text-gray-700">Jawaban Salah</p>
+                                    <span class="text-sm font-semibold ml-20">2/50</span>
+                                </div>
+                                <div class="flex items-center justify-around gap-2">
+                                    <i class="ph ph-question text-warning text-2xl"></i>
+                                    <p class="text-sm text-gray-700">Tidak Terjawab</p>
+                                    <span class="text-sm font-semibold ml-20">2/50</span>
+                                </div>
+                            </div>
+
+                            <div class="md:px-10 xl:pl-[160px] xl:pr-[140px] text-center">
+                                <p class="text-xl font-bold text-black mb-4">Nilai</p>
+                                <p class="text-2xl font-bold text-black">4</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter + Pagination -->
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
+                        <div>
+                            <label class="text-sm text-gray-600 mr-2">Tampilkan</label>
+                            <select class="select select-bordered select-sm w-40">
+                                <option>Semua</option>
+                                <option>Benar</option>
+                                <option>Salah</option>
+                                <option>Tidak Terjawab</option>
+                            </select>
+                        </div>
+
+                        <div class="join gap-2">
+                            <button class="join-item btn btn-sm">&lt;</button>
+                            <button class="join-item btn btn-sm btn-primary">1</button>
+                            <button class="join-item btn btn-sm">2</button>
+                            <button class="join-item btn btn-sm">3</button>
+                            <button class="join-item btn btn-sm">&gt;</button>
+                        </div>
+                    </div>
+
+                    <!-- Soal Box -->
+                    <div class="summary-item space-y-6 max-w-6xl mx-auto">
+                        <span class="text-secondary text-sm mb-6 block">
+                            <i class="ph ph-asterisk"></i>
+
+                            klik dropdown pada setiap opsi jawaban untuk melihat alasan jawaban tersebut salah.
+                        </span>
+
+                        <div x-data="{ showPembahasan: false, showWrong: false }">
+                            <div class="item-question bg-white p-6 rounded-xl shadow-soft space-y-4">
+                                <p class="font-medium text-gray-800">1. Pemberian oksigen aliran tinggi konsentrasi tinggi dengan :</p>
+                                <div class="question space-y-4">
+                                    <div @click="showWrong = true" class="wrong py-3 px-4 border border-[#E07C88] rounded-lg text-[#E07C88]">A. Kanul binasal</div>
+                                    <div class="py-3 px-4 rounded-lg border border-gray-200 hover:bg-gray-50">B. Sungkup muka</div>
+                                    <div class="correct border border-accent py-3 px-4 rounded-lg text-accent">C. Sungkup venturi</div>
+                                    <div class="py-3 px-4 rounded-lg border border-gray-200 hover:bg-gray-50">D. Head book</div>
+                                    <div class="py-3 px-4 rounded-lg border border-gray-200 hover:bg-gray-50">E. Nasopharyngeal airway</div>
+                                </div>
+                                <div class="flex flex-wrap gap-3 pt-2">
+                                    <button @click="showPembahasan = true" class="btn btn-md btn-accent text-white">
+                                        Pembahasan
+                                        <i class="ph ph-polygon text-xl text-white"></i>
+                                    </button>
+                                    <a class="btn btn-md btn-error text-white">
+                                        Laporkan Soal
+                                        <i class="ph ph-warning-circle text-xl text-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Modal Pembahasan -->
+                            <div x-show="showPembahasan" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50" x-transition>
+                                <div class="bg-white rounded-xl shadow-lg w-11/12 md:w-1/2 p-6 relative  max-h-[90vh]" @click.outside="showPembahasan = false">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Pembahasan Soal</h3>
+                                    <div class="overflow-y-auto max-h-[70vh]">
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero dolor, culpa fuga possimus quisquam nihil dolore, quae architecto enim, cum odio nesciunt vel
+                                            iste. Laboriosam consequatur veniam in dolore eos?
+                                        </p>
+                                    </div>
+
+                                    <div class="mt-4 flex justify-end">
+                                        <button class="btn btn-sm btn-accent text-white" @click="showPembahasan = false"><i class="ph ph-x-circle text-white text-2xl"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-show="showWrong" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50" x-transition>
+                                <div class="bg-white rounded-xl shadow-lg w-11/12 md:w-1/2 p-6 relative max-h-[90vh]" @click.outside="showWrong = false">
+                                    <h3 class="text-lg font-semibold text-[#E07C88] mb-3">Jawaban Salah</h3>
+                                    <div class="overflow-y-auto max-h-[70vh]">
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deserunt debitis praesentium saepe facere cumque voluptatem corporis voluptatum minus
+                                            quisquam blanditiis excepturi neque error dolor, laudantium quis, obcaecati rerum aperiam?
+                                        </p>
+                                    </div>
+
+                                    <div class="mt-4 flex justify-end">
+                                        <button class="btn btn-sm btn-error text-white" @click="showWrong = false"><i class="ph ph-x-circle text-white text-2xl"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div x-data="{ showPembahasan: false, showWrong: false }">
+                            <div class="item-question bg-white p-6 rounded-xl shadow-soft space-y-4">
+                                <p class="font-medium text-gray-800">1. Pemberian oksigen aliran tinggi konsentrasi tinggi dengan :</p>
+                                <div class="question space-y-4">
+                                    <div @click="showWrong = true" class="wrong py-3 px-4 rounded-lg text-[#E07C88]">A. Kanul binasal</div>
+                                    <div class="py-3 px-4 rounded-lg border border-gray-200 hover:bg-gray-50">B. Sungkup muka</div>
+                                    <div class="correct py-3 px-4 rounded-lg text-accent">C. Sungkup venturi</div>
+                                    <div class="py-3 px-4 rounded-lg border border-gray-200 hover:bg-gray-50">D. Head book</div>
+                                    <div class="py-3 px-4 rounded-lg border border-gray-200 hover:bg-gray-50">E. Nasopharyngeal airway</div>
+                                </div>
+                                <div class="flex flex-wrap gap-3 pt-2">
+                                    <button @click="showPembahasan = true" class="btn btn-md btn-accent text-white">
+                                        Pembahasan
+                                        <i class="ph ph-polygon text-xl text-white"></i>
+                                    </button>
+                                    <a class="btn btn-md btn-error text-white">
+                                        Laporkan Soal
+                                        <i class="ph ph-warning-circle text-xl text-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Modal Pembahasan -->
+                            <div x-show="showPembahasan" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50" x-transition>
+                                <div class="bg-white rounded-xl shadow-lg w-11/12 md:w-1/2 p-6 relative max-h-[90vh]" @click.outside="showPembahasan = false">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Pembahasan Soal</h3>
+                                    <div class="overflow-y-auto max-h-[70vh]">
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Lorem dasdas ipsum dolor sit amet consectetur adipisicing elit. Vero dolor, culpa fuga possimus quisquam nihil dolore, quae architecto enim, cum odio nesciunt vel
+                                            iste. Laboriosam consequatur veniam in dolore eos?
+                                        </p>
+
+                                        <img src="/assets/pembahasan.png" alt="Pembahasan Gambar" class="mt-4 rounded-lg shadow-md" />
+                                        <img src="/assets/pembahasan.png" alt="Pembahasan Gambar" class="mt-4 rounded-lg shadow-md" />
+                                        <img src="/assets/pembahasan.png" alt="Pembahasan Gambar" class="mt-4 rounded-lg shadow-md" />
+                                        <img src="/assets/pembahasan.png" alt="Pembahasan Gambar" class="mt-4 rounded-lg shadow-md" />
+                                    </div>
+
+                                    <div class="mt-4 flex justify-end">
+                                        <button class="btn btn-sm btn-accent text-white" @click="showPembahasan = false"><i class="ph ph-x-circle text-white text-2xl"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div x-show="showWrong" class="fixed inset-0 bg-black/40 flex items-center justify-center z-50" x-transition>
+                                <div class="bg-white rounded-xl shadow-lg w-11/12 md:w-1/2 p-6 relative" @click.outside="showWrong = false">
+                                    <h3 class="text-lg font-semibold text-[#E07C88] mb-3">Jawaban Salah</h3>
+                                    <div>
+                                        <p class="text-gray-600 leading-relaxed">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil deserunt debitis praesentium saepe facere cumque voluptatem corporis voluptatum minus
+                                            quisquam blanditiis excepturi neque error dolor, laudantium quis, obcaecati rerum aperiam?
+                                        </p>
+                                    </div>
+
+                                    <div class="mt-4 flex justify-end">
+                                        <button class="btn btn-sm btn-error text-white" @click="showWrong = false"><i class="ph ph-x-circle text-white text-2xl"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

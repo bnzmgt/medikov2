@@ -1,0 +1,19 @@
+{
+  "name": "mediko",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node copy-static-pages.js && node inject-assets.js",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.7"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "daisyui": "^5.1.26",
+    "tailwindcss": "^4.1.14"
+  }
+}
