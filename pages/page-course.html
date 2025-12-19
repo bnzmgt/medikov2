@@ -70,27 +70,25 @@
 
         <!-- Content -->
         <main class="flex-1 relative main-bg">
-            <section class="relative flex flex-col justify-center bg-cover bg-center bg-no-repeat min-h-[300px] px-6 md:px-12 lg:px-20" style="background-image: url('/assets/top-section-bg.svg')">
+            <section class="relative flex flex-col justify-center py-16 min-h-[500px] px-6 md:px-12 lg:px-20 bg-mediko-gradient-portrait">
                 <div class="container mx-auto px-6">
                     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                         <div class="text-center md:text-left space-y-3 md:w-1/2">
                             <!-- Breadcrumb -->
                             <nav class="text-sm text-gray-500 flex items-center justify-center md:justify-start space-x-1 mt-4 md:mt-0">
-                                <a href="/" class="hover:text-primary transition">Home</a>
-                                <span class="text-gray-400">›</span>
-                                <span class="text-gray-600 font-medium">Course</span>
+                                <a href="/" class="hover:text-primary transition text-white">Home</a>
+                                <span class="text-white">›</span>
+                                <span class="text-white font-medium">Course</span>
                             </nav>
 
                             <!-- Title -->
-                            <h1 class="text-3xl md:text-4xl font-bold text-primary">Course</h1>
-                            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                                MEDIKO.ID adalah platform bimbingan kedokteran TERBAIK yang mendukung setiap langkah perjalanan belajarmu, mulai dari masa preklinik, koas, persiapan UKMPPD hingga
-                                Internship.
+                            <h1 class="text-3xl md:text-5xl font-semibold text-white">Course</h1>
+                            <p class="text-white text-sm md:text-base leading-relaxed">Pilihan Kursus Spesialisasi yang Up-to-Date dan Terstruktur. <br/>Akses Materi Esensial & Mentor Eksklusif di Sini.
                             </p>
                         </div>
 
                         <div class="relative md:w-1/2 flex justify-center md:justify-end">
-                            <img src="/assets/person-portrait.png" alt="Course Illustration" class="max-h-[250px] md:max-h-[280px] object-contain drop-shadow-lg" />
+                            <img src="/assets/courses-illustration.svg" alt="Course Illustration" class="max-h-[250px] md:max-h-[367px] object-contain drop-shadow-lg" />
                         </div>
                     </div>
                 </div>
@@ -98,64 +96,82 @@
 
             <div id="courses" class="container mx-auto px-6">
                 <div id="course-act" class="w-full bg-base-100 py-10">
-                    <div class="container mx-auto flex flex-row items-center justify-between gap-3">
-                        <!-- Search Input -->
-                        <div id="course-search" class="search form-control w-full md:w-[220px] lg:w-[280px] rounded-lg flex-1">
-                            <span class="flex md:hidden text-sm text-gray-600 mr-5 mb-2">Search</span>
-                            <label class="input input-bordered flex items-center gap-2 rounded-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M9.965 11.026a5.5 5.5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 6.5a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <input type="text" placeholder="Search forum..." class="grow rounded-lg" />
-                            </label>
+                    <div class="container mx-auto">
+                        <div class="flex flex-row items-center gap-3">                        
+                            <!-- Search Input -->
+                            <div id="course-search" class="search form-control w-full md:w-[220px] lg:w-[280px] rounded-lg">
+                                <span class="flex md:hidden text-sm text-gray-600 mr-5 mb-2">Search</span>
+                                <label class="input input-bordered flex items-center gap-2 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
+                                        <path
+                                            fill-rule="evenodd"
+                                            d="M9.965 11.026a5.5 5.5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 6.5a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <input type="text" placeholder="Search forum..." class="grow rounded-lg" />
+                                </label>
+                            </div>
+
+                            <!-- Sort Dropdown -->
+                            <div id="course-sort" class="relative flex items-center gap-2">
+                                <button id="sort-toggle" type="button" class="btn btn-ghost btn-square rounded-lg border border-gray-300" aria-label="Sort">
+                                    <i class="ph ph-arrows-down-up text-xl"></i>
+                                </button>
+                                <div id="sort-menu" class="absolute right-0 top-full mt-2 w-44 bg-base-100 shadow-lg rounded-xl border border-base-200 hidden z-50 overflow-hidden">
+                                    <button class="sort-item" data-sort="newest">Newest</button>
+                                    <button class="sort-item" data-sort="oldest">Oldest</button>
+                                    <div class="divider my-1"></div>
+                                    <button class="sort-item" data-sort="az">A – Z</button>
+                                    <button class="sort-item" data-sort="za">Z – A</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mt-6" id="category-chips">
+                            <button class="category-chip btn btn-sm outline-0 border-0 text-sm font-medium py-2 px-6 rounded-3xl active:bg-primary active:text-white active:translate-0" data-category="all">Semua</button>
+                            <button class="category-chip btn btn-sm outline-0 border-0 text-sm font-medium py-2 px-6 bg-[#F1F5F9] rounded-3xl" data-category="ortopedi">Ortopedi</button>
+                            <button class="category-chip btn btn-sm outline-0 border-0 text-sm font-medium py-2 px-6 bg-[#F1F5F9] rounded-3xl" data-category="kardiologi">Kardiologi</button>
+                            <button class="category-chip btn btn-sm outline-0 border-0 text-sm font-medium py-2 px-6 bg-[#F1F5F9] rounded-3xl" data-category="dermatologi">Dermatologi</button>
                         </div>
 
-                        <!-- Sort Dropdown -->
-                        <div id="course-sort" class="flex flex-col md:flex-row items-start md:items-center gap-2 w-full md:w-auto justify-end">
-                            <span class="text-sm text-gray-600 mr-5">Sort by</span>
-                            <select id="sort-select" class="sort select select-bordered w-full md:w-48 rounded-lg">
-                                <option disabled selected>Choose...</option>
-                                <option>Newest</option>
-                                <option>Oldest</option>
-                            </select>
-                        </div>
                     </div>
                 </div>
+                
                 <div id="course-list" class="list grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden" data-popularity="78" data-date="2025-10-24 12:07:32">
+                    <div class="card item bg-base-100 shadow-md rounded-2xl overflow-hidden" data-popularity="78" data-date="2025-10-24 12:07:32" data-category="ortopedi">
                         <div class="relative">
-                            <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
+                            <img src="/assets/course-image.jpg" class="w-full h-56 object-cover" alt="Course Thumbnail" />
+                            <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg capitalize">Orthopaedi</span>
                         </div>
 
                         <div class="p-4">
-                            <h2 class="title text-xl font-semibold text-secondary mb-4 md:h-[56px]">
-                                <a href="" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna Popular</a>
-                            </h2>
                             <div class="lessons flex items-center text-sm mb-4">
-                                <i class="ph ph-book-bookmark text-lg mr-1"></i>
+                                <i class="ph ph-file-text text-lg mr-1"></i>
                                 28 Lessons
                             </div>
-                            <p class="description text-sm text-gray-500 mb-4">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
 
-                            <div class="price mb-3 min-h-14 flex flex-col justify-end">
-                                <div class="price-meta">
-                                    <span class="price-disc bg-red-100 text-red-600 text-xs font-semibold px-2 py-1 rounded">50%</span>
-                                    <span class="price-disc-number line-through text-gray-500 text-xs ml-1">Rp. 1.500.000</span>
+                            <h2 class="title text-xl font-semibold text-secondary mb-4 md:h-[48px]">
+                                <a href="" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna Popular</a>
+                            </h2>
+                            
+                            <p class="description text-sm text-gray-500 mb-4 pb-4 border-b border-b-gray-200">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
+
+                            <div class="price min-h-14 flex justify-between items-center">
+                                <div class="">
+                                    <div class="price-meta">
+                                        <span class="price-disc bg-red-100 text-red-600 text-xs font-semibold px-2 py-1 rounded">50%</span>
+                                        <span class="price-disc-number line-through text-gray-500 text-xs ml-1">Rp. 1.500.000</span>
+                                    </div>
+                                    <div class="price-info flex justify-between items-center">
+                                        <div class="text-red-600 font-bold text-xl">Rp. 750.000</div>
+                                    </div>
                                 </div>
-                                <div class="price-info flex justify-between items-center">
-                                    <div class="text-red-600 font-bold text-xl">Rp. 750.000</div>
-                                    <p class="text-xs text-secondary font-medium">s/d 01 Oktober 2025</p>
-                                </div>
+                                <button class="btn btn-primary text-white text-base font-normal py-2 px-5 box-border leading-6">Daftar</button>
                             </div>
-
-                            <button class="btn btn-accent btn-lg text-white text-base font-normal w-full box-border">Daftar Sekarang</button>
                         </div>
                     </div>
 
-                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden" data-popularity="0" data-date="2025-10-23 12:07:32">
+                    <div class="card item bg-base-100 shadow-md rounded-2xl overflow-hidden" data-popularity="0" data-date="2025-10-23 12:07:32"  data-category="ortopedi">
                         <div class="relative">
                             <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
                         </div>
@@ -185,7 +201,7 @@
                         </div>
                     </div>
 
-                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden" data-popularity="0" data-date="2025-10-24 12:07:32">
+                    <div class="card item bg-base-100 shadow-md rounded-2xl overflow-hidden" data-popularity="0" data-date="2025-10-24 12:07:32" data-category="kardiologi">
                         <div class="relative">
                             <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
                         </div>
@@ -211,7 +227,7 @@
                         </div>
                     </div>
 
-                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden" data-popularity="0" data-date="2025-10-23 12:07:32">
+                    <div class="card item bg-base-100 shadow-md rounded-2xl overflow-hidden" data-popularity="0" data-date="2025-10-23 12:07:32" data-category="dermatologi">
                         <div class="relative">
                             <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
                         </div>
@@ -374,30 +390,115 @@
                 courseList.on("updated", updatePrevNextState);
                 setTimeout(updatePrevNextState, 200);
 
+                 // =============================
+                // CATEGORY FILTER (HYBRID)
+                // =============================
+                const chips = document.querySelectorAll(".category-chip");
+                const items = document.querySelectorAll("#course-list .item");
+
+                chips.forEach(chip => {
+                    chip.addEventListener("click", () => {
+                        const category = chip.dataset.category;
+
+                        chips.forEach(c => c.classList.remove("btn-active"));
+                        chip.classList.add("btn-active");
+
+                        items.forEach(item => {
+                            const match =
+                                category === "all" ||
+                                item.dataset.category === category;
+
+                            item.classList.toggle("hidden", !match);
+                        });
+
+                        courseList.update();
+                    });
+                });
+
                 // sorting
                 const sortSelect = document.querySelector(".sort");
-                sortSelect.addEventListener("change", e => {
-                    const val = e.target.value;
 
-                    switch (val) {
-                        case "Newest":
-                            courseList.sort("date", {
-                                sortFunction: (a, b) => new Date(b.elm.dataset.date) - new Date(a.elm.dataset.date),
-                            });
-                            break;
-                        case "Oldest":
-                            courseList.sort("date", {
-                                sortFunction: (a, b) => new Date(a.elm.dataset.date) - new Date(b.elm.dataset.date),
-                            });
-                            break;
-                        case "Most Popular":
-                            courseList.sort("popularity", {
-                                sortFunction: (a, b) => parseInt(b.elm.dataset.popularity) - parseInt(a.elm.dataset.popularity),
-                            });
-                            break;
-                        default:
-                            courseList.sort("title", { order: "asc" });
-                    }
+                const sortToggle = document.getElementById("sort-toggle");
+                const sortMenu   = document.getElementById("sort-menu");
+                const sortItems  = document.querySelectorAll(".sort-item");
+
+                sortToggle.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    sortMenu.classList.toggle("hidden");
+                });
+
+                document.addEventListener("click", () => {
+                    sortMenu.classList.add("hidden");
+                });
+
+                sortMenu.addEventListener("click", e => e.stopPropagation());
+
+                // sortSelect.addEventListener("change", e => {
+                //     const val = e.target.value;
+
+                //     switch (val) {
+                //         case "Newest":
+                //             courseList.sort("date", {
+                //                 sortFunction: (a, b) => new Date(b.elm.dataset.date) - new Date(a.elm.dataset.date),
+                //             });
+                //             break;
+                //         case "Oldest":
+                //             courseList.sort("date", {
+                //                 sortFunction: (a, b) => new Date(a.elm.dataset.date) - new Date(b.elm.dataset.date),
+                //             });
+                //             break;
+                //         case "Most Popular":
+                //             courseList.sort("popularity", {
+                //                 sortFunction: (a, b) => parseInt(b.elm.dataset.popularity) - parseInt(a.elm.dataset.popularity),
+                //             });
+                //             break;
+                //         default:
+                //             courseList.sort("title", { order: "asc" });
+                //     }
+                // });
+
+                sortItems.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        const type = btn.dataset.sort;
+
+                        switch (type) {
+                            case "newest":
+                                courseList.sort("date", {
+                                    sortFunction: (a, b) =>
+                                        new Date(b.elm.dataset.date) - new Date(a.elm.dataset.date)
+                                });
+                                break;
+
+                            case "oldest":
+                                courseList.sort("date", {
+                                    sortFunction: (a, b) =>
+                                        new Date(a.elm.dataset.date) - new Date(b.elm.dataset.date)
+                                });
+                                break;
+
+                            case "az":
+                                courseList.sort("title", {
+                                    sortFunction: (a, b) => {
+                                        const A = a.elm.querySelector(".title a")?.innerText.toLowerCase() || "";
+                                        const B = b.elm.querySelector(".title a")?.innerText.toLowerCase() || "";
+                                        return A.localeCompare(B);
+                                    }
+                                });
+                                break;
+
+                            case "za":
+                                courseList.sort("title", {
+                                    sortFunction: (a, b) => {
+                                        const A = a.elm.querySelector(".title a")?.innerText.toLowerCase() || "";
+                                        const B = b.elm.querySelector(".title a")?.innerText.toLowerCase() || "";
+                                        return B.localeCompare(A);
+                                    }
+                                });
+                                break;
+                        }
+
+                        sortMenu.classList.add("hidden");
+                    });
                 });
             });
         </script>

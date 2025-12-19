@@ -1,8 +1,7 @@
 // tailwind.config.js
 module.exports = {
     content: [
-        "./index.html",
-        "./styleguide.html",
+        "./*.html",
         ".pages/**/*.html",
         "./src/**/*.{js,ts,jsx,tsx}", // sesuaikan kalau nanti pakai Vue/React
     ],

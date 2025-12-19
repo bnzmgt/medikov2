@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     </head>
-    <body class="font-display font-light tracking-normal min-h-screen">
+    <body class="font-display font-normal leading-6 min-h-screen">
         <!-- Header -->
         <header
             x-data="{ scrolled: false }"
@@ -63,39 +63,56 @@
                 </div>
 
                 <!-- Login/Register -->
-                <a href="./pages/page-register.html" class="btn btn-primary hidden md:flex">Login/Register</a>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="./pages/page-register.html" class="btn btn-outline rounded-lg border-info text-info hover:bg-info hover:text-white hidden md:flex">Login</a>
+                    <a href="./pages/page-register.html" class="btn btn-outline bg-info border-info hover:border-info text-white rounded-lg hidden md:flex">Register</a>
+                </div>
             </div>
         </header>
 
         <!-- Content -->
         <main>
-            <section id="home-banner">
-                <div class="w-full mx-auto md:h-[50vh] lg:h-[70vh] xl:h-[90vh]">
-                    <div class="swiper swipHero h-full">
-                        <div class="swiper-wrapper h-full">
-                            <!-- Slide 1 -->
-                            <div class="swiper-slide h-full flex items-center justify-center relative">
-                                <img src="/assets/dummy-slide.jpg" alt="Slide 1" class="w-full md:h-full object-cover" />
-                            </div>
+            <section id="home-banner" class="relative bg-mediko-gradient min-h-[748px] overflow-hidden">
+                <div class="container mx-auto px-6 h-full">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[748px] items-start md:items-center">
 
-                            <!-- Slide 2 -->
-                            <div class="swiper-slide h-full flex items-center justify-center relative">
-                                <img src="/assets/dummy-slide0.jpg" alt="Slide 2" class="w-full md:h-full object-cover" />
-                            </div>
+                        <div class="text-white max-w-xl z-10 py-16 md:py-0">
+                            <span class="inline-flex items-center gap-2 text-sm mb-5 bg-white/10 px-4 py-1 rounded-full border border-white p-2">
+                                ⭐ 4.9/5 dari 500+ Dokter
+                            </span>
+
+                            <h1 class="text-4xl lg:text-5xl font-semibold leading-tight mb-5 text-white">
+                                Partner Terbaik Dokter Indonesia Menuju Jenjang Spesialis
+                            </h1>
+
+                            <p class="text-[#EEEEEE] mb-6 text-xl">
+                                Akses materi kedokteran & video pembelajaran kapan saja,
+                                di mana saja. Metode belajar fleksibel menyesuaikan jadwal sibukmu.
+                            </p>
+
+                            <a href="#" class="btn btn-outline text-base text-white bg-info border border-white rounded-2xl py-3 px-6">Mulai Persiapan Sekarang <i class="ph ph-arrow-right transform transition-transform duration-300 group-hover:translate-x-1 text-xl"></i></a>
+
+                            <p class="text-sm text-white/70 mt-4">
+                                Gabung dengan 50.000+ Alumni yang sudah lolos
+                            </p>
                         </div>
 
-                        <!-- Controls -->
-                        <div class="swiper-pagination mt-4"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
+                        <div class="relative hidden md:block"></div>
                     </div>
                 </div>
+
+                <img src="/assets/hero-image.png" alt="Dokter PPDS Mediko" class="absolute bottom-0 right-1/2 md:right-6 translate-x-1/2 md:translate-x-0 max-h-[60vh] md:max-h-[480px] lg:max-h-[640px] xl:max-h-[720px] w-auto object-contain pointer-events-none"
+                />
             </section>
 
-            <section id="home-category" class="pt-10 lg:pt-16 scroll-mt-[82px]">
+
+            <section id="home-category" class="bg-[#F5F7F9] py-10 lg:py-24 scroll-mt-[82px]">
                 <div class="container mx-auto px-4">
                     <div class="flex justify-between items-center mb-8">
-                        <h2 class="text-3xl font-bold">Course PPDS</h2>
+                        <div class="text-left">
+                            <h2 class="text-2xl leading-4 tracking-tight font-bold mb-2">Kursus Spesialisasi</h2>
+                            <p class="text-base leading-6">Pilih bidang studi PPDS Anda</p>
+                        </div>                        
 
                         <div class="flex gap-4 relative">
                             <button class="swiper-button-prev bg-white shadow rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100">
@@ -113,77 +130,90 @@
                             <!-- Slide 1 -->
                             <div class="swiper-slide">
                                 <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                    <div class="bg-blue-gradient h-28 flex items-center justify-center rounded-t-xl">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" alt="Kedokteran Gigi" class="w-12 h-12" />
-                                    </div>
-                                    <div class="p-4">
-                                        <h3 class="text-base font-bold">Kedokteran Gigi</h3>
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-kulit.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Kulit</h3>
                                     </div>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                    <div class="bg-blue-gradient h-28 flex items-center justify-center rounded-t-xl">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" alt="Kedokteran Gigi" class="w-12 h-12" />
-                                    </div>
-                                    <div class="p-4">
-                                        <h3 class="text-base font-bold">Ortopedic</h3>
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-orthopaedi.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Orthopaedi</h3>
                                     </div>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                    <div class="bg-blue-gradient h-28 flex items-center justify-center rounded-t-xl">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" alt="Kedokteran Gigi" class="w-12 h-12" />
-                                    </div>
-                                    <div class="p-4">
-                                        <h3 class="text-base font-bold">Mata</h3>
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-urologi.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Urologi</h3>
                                     </div>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                    <div class="bg-blue-gradient h-28 flex items-center justify-center rounded-t-xl">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" alt="Kedokteran Gigi" class="w-12 h-12" />
-                                    </div>
-                                    <div class="p-4">
-                                        <h3 class="text-base font-bold">Biologi Oral</h3>
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-bedah.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Bedah</h3>
                                     </div>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                    <div class="bg-blue-gradient h-28 flex items-center justify-center rounded-t-xl">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" alt="Kedokteran Gigi" class="w-12 h-12" />
-                                    </div>
-                                    <div class="p-4">
-                                        <h3 class="text-base font-bold">Fisiologi</h3>
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-rehab.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Rehab</h3>
                                     </div>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                    <div class="bg-blue-gradient h-28 flex items-center justify-center rounded-t-xl">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" alt="Kedokteran Gigi" class="w-12 h-12" />
-                                    </div>
-                                    <div class="p-4">
-                                        <h3 class="text-base font-bold">Farmakologi</h3>
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-kardiologi.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Kardiologi</h3>
                                     </div>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                    <div class="bg-blue-gradient h-28 flex items-center justify-center rounded-t-xl">
-                                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" alt="Kedokteran Gigi" class="w-12 h-12" />
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-anestesi.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Anestesi</h3>
                                     </div>
-                                    <div class="p-4">
-                                        <h3 class="text-base font-bold">Farmakologi</h3>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-interna.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Interna</h3>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-mata.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Mata</h3>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
+                                    <div class="p-6 flex flex-col items-center justify-center rounded-t-xl">
+                                        <img src="/assets/iconrev/icon-neurologi.svg" alt="Kedokteran Gigi" class="w-12 h-12 mb-3" />
+                                        <h3 class="text-base font-semibold">Neurology</h3>
                                     </div>
                                 </a>
                             </div>
@@ -192,38 +222,56 @@
                 </div>
             </section>
 
-            <section id="home-course" class="pt-10 lg:pt-16 scroll-mt-[82px]">
+            <section id="home-course" class="py-10 lg:py-24 scroll-mt-[82px]">
                 <div class="container mx-auto px-6">
-                    <h2 class="text-3xl font-bold text-center mb-10">Pilihan Course Unggulan</h2>
+                    <div class="flex justify-between items-center mb-[50px]">
+                        <div class="text-left">
+                            <h2 class="text-2xl leading-4 tracking-tight font-bold mb-2">Kursus Unggulan Kami</h2>
+                            <p class="text-base leading-6">Kursus terpopuler yang paling banyak diminati</p>
+                        </div>                        
+
+                        <div class="flex relative">
+                            <a
+                        href=""
+                        class="text-base flex items-center justify-center gap-2 text-secondary font-medium hover:text-secondary-content mx-auto max-w-fit group transition-all duration-300">
+                        Lihat course lainnya
+                        <i class="ph ph-arrow-right transform transition-transform duration-300 group-hover:translate-x-1 text-xl"></i>
+                    </a>
+                        </div>
+                    </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
                         <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
                             <div class="relative">
                                 <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
+                                <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg">Orthopaedi</span>
                             </div>
 
                             <div class="p-4">
-                                <h2 class="text-xl font-semibold text-secondary mb-4">
-                                    <a href="" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna</a>
-                                </h2>
                                 <div class="flex items-center text-sm mb-4">
-                                    <i class="ph ph-book-bookmark text-lg mr-1"></i>
+                                    <i class="ph ph-file-text text-lg mr-1"></i>
                                     28 Lessons
                                 </div>
+                                <h2 class="text-xl font-semibold text-secondary mb-4 h-[48px]">
+                                    <a href="" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna</a>
+                                </h2>
+                                
                                 <p class="text-sm text-gray-500 mb-4 min-h-10">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
 
-                                <div class="price mb-3 min-h-14 flex flex-col justify-end">
-                                    <div class="price-meta">
-                                        <span class="price-disc bg-red-100 text-red-600 text-xs font-semibold px-2 py-1 rounded">50%</span>
-                                        <span class="price-disc-number line-through text-gray-500 text-xs ml-1">Rp. 1.500.000</span>
+                                <div class="price min-h-14 flex justify-between items-center">
+                                    <div class="">
+                                        <div class="price-meta">
+                                            <span class="price-disc bg-red-100 text-red-600 text-xs font-semibold px-2 py-1 rounded">50%</span>
+                                            <span class="price-disc-number line-through text-gray-500 text-xs ml-1">Rp. 1.500.000</span>
+                                        </div>
+                                        <div class="price-info flex justify-between items-center">
+                                            <div class="text-red-600 font-bold text-xl">Rp. 750.000</div>
+                                        </div>
                                     </div>
-                                    <div class="price-info flex justify-between items-center">
-                                        <div class="text-red-600 font-bold text-xl">Rp. 750.000</div>
-                                        <p class="text-xs text-secondary font-medium">s/d 01 Oktober 2025</p>
-                                    </div>
+                                    <button class="btn btn-primary  btn-lg text-white text-base font-normal  box-border">Daftar</button>
                                 </div>
 
-                                <button class="btn btn-accent btn-lg text-white text-base font-normal w-full box-border">Daftar Sekarang</button>
+                                
                             </div>
                         </div>
 
@@ -233,7 +281,7 @@
                             </div>
 
                             <div class="p-4">
-                                <h2 class="text-xl font-semibold text-secondary mb-4">
+                                <h2 class="text-xl font-semibold text-secondary mb-4 min-h-[48px]">
                                     <a href="" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna</a>
                                 </h2>
                                 <div class="flex items-center text-sm mb-4">
@@ -275,7 +323,7 @@
                                 <div class="price mb-3 min-h-14 flex flex-col justify-end">
                                     <div class="price-meta"></div>
                                     <div class="price-info flex justify-between items-center">
-                                        <div class="text-secondary font-bold text-xl">Rp. 750.000</div>
+                                        <div class="text-primary font-bold text-xl">Rp. 750.000</div>
                                     </div>
                                 </div>
 
@@ -309,304 +357,435 @@
                             </div>
                         </div>
                     </div>
-                    <a
-                        href=""
-                        class="text-base mt-9 flex items-center justify-center gap-2 text-secondary font-medium hover:text-secondary-content mx-auto max-w-fit group transition-all duration-300">
-                        Lihat course lainnya
-                        <i class="ph ph-arrow-right transform transition-transform duration-300 group-hover:translate-x-1 text-xl"></i>
-                    </a>
                 </div>
             </section>
 
-            <section class="bg-gradient-to-b from-white to-[#3AA0B7]/30 scroll-mt-[82px]">
-                <div id="home-facility" class="py-10 lg:py-16">
-                    <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-10">
-                        <div class="w-full lg:w-2/5">
-                            <h2 class="text-3xl font-bold mb-3">Fasilitas Mediko PPDS</h2>
-                            <p class="text-gray-500 leading-relaxed">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio assumenda doloremque exercitationem, ratione quis deleniti accusamus eius magni voluptate.
-                            </p>
-                        </div>
-
-                        <div x-data="{ open: false, imageSrc: '', caption: '' }" class="w-full lg:w-3/5 space-y-4">
-                            <!-- GRID UTAMA -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div
-                                    class="relative rounded-2xl overflow-hidden shadow-md cursor-pointer"
-                                    @click="open = true; imageSrc = '/assets/course-image.jpg'; caption = $el.querySelector('.caption').innerText">
-                                    <img src="/assets/course-image.jpg" alt="Pembahasan Materi" class="w-full h-[267px] object-cover" />
-                                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary/90 lg:h-16 flex items-end to-transparent p-3 text-white text-sm font-medium caption">Pembahasan Materi</div>
-                                </div>
-
-                                <div
-                                    class="relative rounded-2xl overflow-hidden shadow-md cursor-pointer"
-                                    @click="open = true; imageSrc = '/assets/course-image.jpg'; caption = $el.querySelector('.caption').innerText">
-                                    <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full h-[267px] object-cover" />
-                                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary/90 lg:h-16 flex items-end to-transparent p-3 text-white text-sm font-medium caption">
-                                        Buku Materi & Handbook Lengkap
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- GRID KECIL -->
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                                <template x-for="i in 4" :key="i">
-                                    <div
-                                        class="flex justify-center overflow-hidden h-[127px] rounded-2xl shadow-md cursor-pointer relative"
-                                        @click="open = true; imageSrc = '/assets/course-image.jpg'; caption = $el.querySelector('.caption')?.innerText || ''">
-                                        <img src="/assets/course-image.jpg" class="w-full object-cover" />
-                                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary/90 lg:h-16 flex items-end to-transparent p-3 text-white text-sm font-medium caption">
-                                            Fasilitas
-                                            <span x-text="i"></span>
-                                        </div>
-                                    </div>
-                                </template>
-                            </div>
-
-                            <!-- POPUP IMAGE -->
-                            <div x-show="open" x-transition.opacity @click.self="open = false" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-                                <div class="relative max-w-4xl w-full">
-                                    <img :src="imageSrc" alt="Preview" class="rounded-lg shadow-2xl max-h-[80vh] mx-auto object-contain" />
-                                    <button @click="open = false" class="absolute top-3 right-3 bg-white/80 hover:bg-white text-black w-10 h-10 rounded-full p-2">✕</button>
-                                    <!-- Caption -->
-                                    <p class="text-white text-center mt-4 text-lg font-medium" x-text="caption"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="home-testimonial" class="py-10 lg:py-16">
-                    <div class="container mx-auto px-6">
-                        <div class="flex justify-between items-center mb-8">
-                            <h2 class="text-3xl font-bold">Kata Pengguna</h2>
-
-                            <div class="flex gap-4 relative h-12">
-                                <button class="swiper-button-prev bg-white shadow rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100">
-                                    <i class="ph ph-caret-left"></i>
-                                </button>
-                                <button class="swiper-button-next bg-white shadow rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100">
-                                    <i class="ph ph-caret-right"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="swiper swipTestimonial">
-                            <div class="swiper-wrapper items-stretch">
-                                <!-- Card 1 -->
-                                <div class="swiper-slide flex">
-                                    <div class="bg-white rounded-xl p-6 shadow-sm flex flex-col justify-between shadow-soft">
-                                        <p class="text-gray-600 italic mb-4">
-                                            “Saya juga berhasil membuat langkah aksi untuk mencapai tujuan karier saya dengan materi dan belajar dengan Mediko PPDS!”
-                                        </p>
-                                        <div class="flex items-center justify-between mt-auto">
-                                            <div class="flex items-center gap-3">
-                                                <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
-                                                <p class="font-semibold text-gray-800">Tut Wuri Handayani</p>
-                                            </div>
-                                            <i class="ph ph-quotes text-6xl text-[#B7E4F1]"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Card 2 -->
-                                <div class="swiper-slide flex">
-                                    <div class="bg-white rounded-xl p-6 shadow-sm flex flex-col justify-between shadow-soft">
-                                        <p class="text-gray-600 italic mb-4">“Programnya sangat membantu saya memahami soal-soal dengan lebih dalam!”</p>
-                                        <div class="flex items-center justify-between mt-auto">
-                                            <div class="flex items-center gap-3">
-                                                <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
-                                                <p class="font-semibold text-gray-800">Andi Saputra</p>
-                                            </div>
-                                            <i class="ph ph-quotes text-6xl text-[#B7E4F1]"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Card 3 -->
-                                <div class="swiper-slide flex">
-                                    <div class="bg-white rounded-xl p-6 shadow-sm flex flex-col justify-between shadow-soft">
-                                        <p class="text-gray-600 italic mb-4">“Materinya lengkap dan sesuai kebutuhan UKMPPD. Terima kasih Mediko!”</p>
-                                        <div class="flex items-center justify-between mt-auto">
-                                            <div class="flex items-center gap-3">
-                                                <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
-                                                <p class="font-semibold text-gray-800">Siti Rahmawati</p>
-                                            </div>
-                                            <i class="ph ph-quotes text-6xl text-[#B7E4F1]"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide flex">
-                                    <div class="bg-white rounded-xl p-6 shadow-sm flex flex-col justify-between shadow-soft">
-                                        <p class="text-gray-600 italic mb-4">“Materinya lengkap dan sesuai kebutuhan UKMPPD. Terima kasih Mediko!”</p>
-                                        <div class="flex items-center justify-between mt-auto">
-                                            <div class="flex items-center gap-3">
-                                                <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
-                                                <p class="font-semibold text-gray-800">Siti Rahmawati</p>
-                                            </div>
-                                            <i class="ph ph-quotes text-6xl text-[#B7E4F1]"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="home-stat" class="pt-10 lg:pt-16 scroll-mt-[82px]">
+            <section id="home-facility" class="bg-[#E0EAF5] py-10 lg:py-24 scroll-mt-[82px]">
                 <div class="container mx-auto px-6">
-                    <!-- text - start -->
-                    <div class="mb-8 md:mb-12">
-                        <h2 class="text-3xl font-bold text-center">Statistik Peserta & Alumni</h2>
-                    </div>
-                    <!-- text - end -->
 
-                    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
-                        <!-- stat - start -->
-                        <div
-                            class="flex flex-col items-center justify-center rounded-lg bg-white p-4 lg:p-8 shadow-soft"
-                            x-data="countUp({ target: 63123, duration: 2000 })"
-                            x-intersect.once="start()">
-                            <div class="w-[60px] h-[60px] bg-primary flex items-center justify-center rounded-full mb-3">
-                                <i class="ph ph ph-users-three text-[32px] text-white"></i>
+                    <div class="text-left mb-[50px]">
+                        <h2 class="text-2xl leading-4 tracking-tight font-bold mb-2">Fasilitas Mediko</h2>
+                        <p class="text-base leading-6">Mediko menyediakan fasilitas pembelajaran PPDS yang lengkap dan memadai sesuai dengan kebutuhan standar.</p>
+                    </div>            
+
+                    <div x-data="{ open: false, imageSrc: '', caption: '' }" class="w-full space-y-4">
+                        <!-- GRID UTAMA -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                            <div
+                                class="relative rounded-2xl overflow-hidden shadow-md cursor-pointer"
+                                @click="open = true; imageSrc = '/assets/course-image.jpg'; caption = $el.querySelector('.caption').innerText">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full h-[348px] object-cover" />
+                                <div class="absolute bottom-0 top-auto left-0 right-0 bg-gradient-card h-3/5 p-6 caption">
+                                    <div class="flex flex-col justify-end h-full">
+                                        <h4 class="text-2xl font-medium leading-6 text-white mb-3">Fasilitas Lengkap</h4>
+                                        <p class="text-base leading-6 font-normal text-[#E0EAF0]">Akses penuh ke semua video on-demand, bank soal terbaru, dan sesi konsultasi intensif mentor.</p>
+                                    </div>
+                                    
+                                </div>
                             </div>
 
-                            <div class="text-xl font-bold text-primary sm:text-2xl mb-1.5" x-text="display"></div>
-                            <div class="text-sm font-normal sm:text-base">Jumlah Pengguna</div>
+                            <div
+                                class="relative rounded-2xl overflow-hidden shadow-md cursor-pointer"
+                                @click="open = true; imageSrc = '/assets/course-image.jpg'; caption = $el.querySelector('.caption').innerText">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full h-[348px] object-cover" />
+                                <div class="absolute bottom-0 top-auto left-0 right-0 bg-gradient-card h-3/5 p-6 caption">
+                                    <div class="flex flex-col justify-end h-full">
+                                        <h4 class="text-2xl font-medium leading-6 text-white mb-3">Fasilitas Lengkap</h4>
+                                        <p class="text-base leading-6 font-normal text-[#E0EAF0]">Akses penuh ke semua video on-demand, bank soal terbaru, dan sesi konsultasi intensif mentor.</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative rounded-2xl overflow-hidden shadow-md cursor-pointer"
+                                @click="open = true; imageSrc = '/assets/course-image.jpg'; caption = $el.querySelector('.caption').innerText">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full h-[348px] object-cover" />
+                                <div class="absolute bottom-0 top-auto left-0 right-0 bg-gradient-card h-3/5 p-6 caption">
+                                    <div class="flex flex-col justify-end h-full">
+                                        <h4 class="text-2xl font-medium leading-6 text-white mb-3">Fasilitas Lengkap</h4>
+                                        <p class="text-base leading-6 font-normal text-[#E0EAF0]">Akses penuh ke semua video on-demand, bank soal terbaru, dan sesi konsultasi intensif mentor.</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative rounded-2xl overflow-hidden shadow-md cursor-pointer"
+                                @click="open = true; imageSrc = '/assets/course-image.jpg'; caption = $el.querySelector('.caption').innerText">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full h-[348px] object-cover" />
+                                <div class="absolute bottom-0 top-auto left-0 right-0 bg-gradient-card h-3/5 p-6 caption">
+                                    <div class="flex flex-col justify-end h-full">
+                                        <h4 class="text-2xl font-medium leading-6 text-white mb-3">Fasilitas Lengkap</h4>
+                                        <p class="text-base leading-6 font-normal text-[#E0EAF0]">Akses penuh ke semua video on-demand, bank soal terbaru, dan sesi konsultasi intensif mentor.</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative rounded-2xl overflow-hidden shadow-md cursor-pointer"
+                                @click="open = true; imageSrc = '/assets/course-image.jpg'; caption = $el.querySelector('.caption').innerText">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full h-[348px] object-cover" />
+                                <div class="absolute bottom-0 top-auto left-0 right-0 bg-gradient-card h-3/5 p-6 caption">
+                                    <div class="flex flex-col justify-end h-full">
+                                        <h4 class="text-2xl font-medium leading-6 text-white mb-3">Fasilitas Lengkap</h4>
+                                        <p class="text-base leading-6 font-normal text-[#E0EAF0]">Akses penuh ke semua video on-demand, bank soal terbaru, dan sesi konsultasi intensif mentor.</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative rounded-2xl overflow-hidden shadow-md cursor-pointer"
+                                @click="open = true; imageSrc = '/assets/course-image.jpg'; caption = $el.querySelector('.caption').innerText">
+                                <img src="/assets/course-image.jpg" alt="Buku Materi & Handbook Lengkap" class="w-full h-[348px] object-cover" />
+                                <div class="absolute bottom-0 top-auto left-0 right-0 bg-gradient-card h-3/5 p-6 caption">
+                                    <div class="flex flex-col justify-end h-full">
+                                        <h4 class="text-2xl font-medium leading-6 text-white mb-3">Fasilitas Lengkap</h4>
+                                        <p class="text-base leading-6 font-normal text-[#E0EAF0]">Akses penuh ke semua video on-demand, bank soal terbaru, dan sesi konsultasi intensif mentor.</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            
                         </div>
+
+                        <!-- POPUP IMAGE -->
+                        <div x-show="open" x-transition.opacity @click.self="open = false" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+                            <div class="relative max-w-4xl w-full">
+                                <img :src="imageSrc" alt="Preview" class="rounded-lg shadow-2xl max-h-[80vh] mx-auto object-contain" />
+                                <button @click="open = false" class="absolute top-3 right-3 bg-white/80 hover:bg-white text-black w-10 h-10 rounded-full p-2">✕</button>
+                                <!-- Caption -->
+                                <p class="text-white text-center mt-4 text-lg font-medium" x-text="caption"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+            </section>
+
+            <section id="home-testimonial" class="pt-10 lg:py-24 scroll-mt-[82px]">
+                <div class="container mx-auto px-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="text-left">
+                            <h2 class="text-2xl leading-4 tracking-tight font-bold mb-2 text-[#0F172B]">Apa Kata Para Peserta Course? </h2>
+                            <p class="text-base leading-6">Mereka berbagi pengalaman tentang bagaimana materi dan fitur belajar membantu meningkatkan pemahaman mereka.</p>
+                        </div>                        
+
+                        <div class="flex gap-4 relative h-12">
+                            <button class="swiper-button-prev bg-[#787878] shadow rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#787878]/50">
+                                <i class="ph ph-caret-left text-white"></i>
+                            </button>
+                            <button class="swiper-button-next bg-[#787878] shadow rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#787878]/50">
+                                <i class="ph ph-caret-right text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative pl-6 lg:pl-[calc((100vw-1536px)/2+24px)] md:-ml-6">
+                    <div class="swiper swipTestimonial !px-6 !py-8">
+                        <div class="swiper-wrapper items-stretch">
+                            <!-- Card 1 -->
+                            <div class="swiper-slide flex">
+                                <div class="bg-white rounded-xl p-6 flex flex-col justify-between shadow-soft min-h-[220px]">
+                                    <div class="flex items-center mb-4 justify-between">
+                                        <div class="-ml-1 flex gap-0.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#FFA500]" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#FFA500]" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#FFA500]" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#FFA500]" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#FFA500]" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                        </div>
+                                        <img src="/assets/icon-quote.png" alt="">
+                                    </div>
+                                    <p class="text-[#314158] text-base mb-4">
+                                        Platform terbaik untuk persiapan PPDS! Materi sangat lengkap dan terstruktur. Video pembelajaran sangat membantu saya memahami konsep yang sulit. Alhamdulillah berhasil lolos PPDS Bedah.
+                                    </p>
+                                    <div class="divider my-1"></div>
+                                    <div class="flex items-center justify-between mt-auto">
+                                        <div class="flex items-center gap-3">
+                                            <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
+                                            <div class="">
+                                                <p class="text-base font-normal text-[#0F172B]">Tut Wuri Handayani</p>
+                                                <p class="font-normal text-base text-[#62748E]">PPDS Bedah Umum Universitas Indonesia</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="swiper-slide flex">
+                                <div class="bg-white rounded-xl p-6 flex flex-col justify-between shadow-soft min-h-[220px]">
+                                    <p class="text-gray-600 italic mb-4">
+                                        “Saya juga berhasil membuat langkah aksi untuk mencapai tujuan karier saya dengan materi dan belajar dengan Mediko PPDS!”
+                                    </p>
+                                    <div class="flex items-center justify-between mt-auto">
+                                        <div class="flex items-center gap-3">
+                                            <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
+                                            <p class="font-semibold text-gray-800">Tut Wuri Handayani</p>
+                                        </div>
+                                        <i class="ph ph-quotes text-6xl text-[#B7E4F1]"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="swiper-slide flex">
+                                <div class="bg-white rounded-xl p-6 flex flex-col justify-between shadow-soft min-h-[220px]">
+                                    <p class="text-gray-600 italic mb-4">
+                                        “Saya juga berhasil membuat langkah aksi untuk mencapai tujuan karier saya dengan materi dan belajar dengan Mediko PPDS!”
+                                    </p>
+                                    <div class="flex items-center justify-between mt-auto">
+                                        <div class="flex items-center gap-3">
+                                            <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
+                                            <p class="font-semibold text-gray-800">Tut Wuri Handayani</p>
+                                        </div>
+                                        <i class="ph ph-quotes text-6xl text-[#B7E4F1]"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide flex">
+                                <div class="bg-white rounded-xl p-6 flex flex-col justify-between shadow-soft min-h-[220px]">
+                                    <p class="text-gray-600 italic mb-4">
+                                        “Saya juga berhasil membuat langkah aksi untuk mencapai tujuan karier saya dengan materi dan belajar dengan Mediko PPDS!”
+                                    </p>
+                                    <div class="flex items-center justify-between mt-auto">
+                                        <div class="flex items-center gap-3">
+                                            <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
+                                            <p class="font-semibold text-gray-800">Tut Wuri Handayani</p>
+                                        </div>
+                                        <i class="ph ph-quotes text-6xl text-[#B7E4F1]"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide flex">
+                                <div class="bg-white rounded-xl p-6 flex flex-col justify-between shadow-soft min-h-[220px]">
+                                    <p class="text-gray-600 italic mb-4">
+                                        “Saya juga berhasil membuat langkah aksi untuk mencapai tujuan karier saya dengan materi dan belajar dengan Mediko PPDS!”
+                                    </p>
+                                    <div class="flex items-center justify-between mt-auto">
+                                        <div class="flex items-center gap-3">
+                                            <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
+                                            <p class="font-semibold text-gray-800">Tut Wuri Handayani</p>
+                                        </div>
+                                        <i class="ph ph-quotes text-6xl text-[#B7E4F1]"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide flex">
+                                <div class="bg-white rounded-xl p-6 flex flex-col justify-between shadow-soft min-h-[220px]">
+                                    <p class="text-gray-600 italic mb-4">
+                                        “Saya juga berhasil membuat langkah aksi untuk mencapai tujuan karier saya dengan materi dan belajar dengan Mediko PPDS!”
+                                    </p>
+                                    <div class="flex items-center justify-between mt-auto">
+                                        <div class="flex items-center gap-3">
+                                            <img src="/assets/person.png" alt="User" class="w-10 h-10 rounded-full object-cover" />
+                                            <p class="font-semibold text-gray-800">Tut Wuri Handayani</p>
+                                        </div>
+                                        <i class="ph ph-quotes text-6xl text-[#B7E4F1]"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </section>
+
+            <section id="home-stat" class="py-10 lg:py-24 scroll-mt-[82px] bg-[#F5F7F9]">
+                <div class="container mx-auto px-6">
+                    <div class="mb-8 md:mb-12 text-center">
+                        <h2 class="text-2xl font-bold mb-2.5 text-[#101828]">Perjalanan Kami Sejauh Ini</h2>
+                        <p class="text-base leading-6 font-normal">Pencapaian peserta dari berbagai program PPDS</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8 lg:mx-32">
+                        <!-- stat - start -->
+                        <div class="bg-mediko-gradient mediko-rounded-overlay relative overflow-hidden rounded-2xl">
+                            <div class="mediko-deco-circle deco-top-right w-[133px] h-[133px]"></div>
+                            <div class="mediko-deco-circle deco-bottom-left w-[133px] h-[133px]"></div>
+                            <div
+                                class="flex flex-col items-center justify-center rounded-lg  p-4 lg:p-8 shadow-soft text-center"
+                                x-data="countUp({ target: 63123, duration: 2000 })"
+                                x-intersect.once="start()">
+                                <div class="flex items-center justify-center rounded-full mb-3">
+                                    <img src="/assets/iconrev/icon-h-pengguna.svg" alt="Alumni" class="w-16 h-16 mb-3" />
+                                </div>
+
+                                <div class="font-semibold text-white text-[22px] mb-2.5" x-text="display"></div>
+                                <div class="text-base font-medium text-white leading-6 mb-2.5">Jumlah Pengguna</div>
+                                <p class="text-[13px] leading-6 font-normal text-white">Calon dokter yang mempercayakan persiapan PPDS mereka di Mediko.</p>
+                            </div>
+                        </div>                        
                         <!-- stat - end -->
 
                         <!-- stat - start -->
-                        <div
-                            class="flex flex-col items-center justify-center rounded-lg bg-white p-4 lg:p-8 shadow-soft"
-                            x-data="countUp({ target: 235175, duration: 2000 })"
-                            x-intersect.once="start()">
-                            <div class="w-[60px] h-[60px] bg-primary flex items-center justify-center rounded-full mb-3">
-                                <i class="ph ph-book-open-text text-[32px] text-white"></i>
-                            </div>
+                        <div class="bg-mediko-gradient mediko-rounded-overlay relative overflow-hidden rounded-2xl">
+                            <div class="mediko-deco-circle deco-top-right w-[133px] h-[133px]"></div>
+                            <div class="mediko-deco-circle deco-bottom-left w-[133px] h-[133px]"></div>
+                            <div
+                                class="flex flex-col items-center justify-center rounded-lg p-4 lg:p-8 shadow-soft text-center"
+                                x-data="countUp({ target: 235175, duration: 2000 })"
+                                x-intersect.once="start()">
+                                <div class="flex items-center justify-center rounded-full mb-3">
+                                    <img src="/assets/iconrev/icon-h-terlaksana.svg" alt="Alumni" class="w-16 h-16 mb-3" />
+                                </div>
 
-                            <div class="text-xl font-bold text-primary sm:text-2xl mb-1.5" x-text="display"></div>
-                            <div class="text-sm font-normal sm:text-base">Try Out Terlaksana</div>
+                                <div class="font-semibold text-white text-[22px] mb-2.5" x-text="display"></div>
+                                <div class="text-base font-medium text-white leading-6 mb-2.5">Try Out Terlaksana</div>
+                                <p class="text-[13px] leading-6 font-normal text-white">Simulasi ujian yang membantu peserta meningkatkan peluang lolos PPDS.</p>
+                                
+                            </div>
                         </div>
 
                         <!-- stat - start -->
-                        <div
-                            class="flex flex-col items-center justify-center rounded-lg bg-white p-4 lg:p-8 shadow-soft"
-                            x-data="countUp({ target: 55663, duration: 2000 })"
-                            x-intersect.once="start()">
-                            <div class="w-[60px] h-[60px] bg-primary flex items-center justify-center rounded-full mb-3">
-                                <i class="ph ph-student text-[32px] text-white"></i>
-                            </div>
+                         <div class="bg-mediko-gradient mediko-rounded-overlay relative overflow-hidden rounded-2xl">
+                            <div class="mediko-deco-circle deco-top-right w-[133px] h-[133px]"></div>
+                            <div class="mediko-deco-circle deco-bottom-left w-[133px] h-[133px]"></div>
+                            <div
+                                class="flex flex-col items-center justify-center rounded-lg p-4 lg:p-8 shadow-soft text-center"
+                                x-data="countUp({ target: 55663, duration: 2000 })"
+                                x-intersect.once="start()">
+                                <div class="flex items-center justify-center rounded-full mb-3">
+                                    <img src="/assets/iconrev/icon-h-alumni.svg" alt="Alumni" class="w-16 h-16 mb-3" />
+                                </div>
 
-                            <div class="text-xl font-bold text-primary sm:text-2xl mb-1.5" x-text="display"></div>
-                            <div class="text-sm font-normal sm:text-base">Jumlah Alumni</div>
+                                <div class="font-semibold text-white text-[22px] mb-2.5" x-text="display"></div>
+                                <div class="text-base font-medium text-white leading-6 mb-2.5">Jumlah Alumni</div>
+                                <p class="text-[13px] leading-6 font-normal text-white">Alumni yang berhasil menyelesaikan seluruh program latihan.</p>
+                            </div>
                         </div>
                         <!-- stat - end -->
                     </div>
                 </div>
             </section>
 
-            <section id="home-faq" class="pt-10 lg:pt-16 scroll-mt-[82px]">
-                <div class="container mx-auto px-6">
-                    <h2 class="text-3xl font-bold text-center mb-10">Paling sering ditanyakan</h2>
+            <section id="home-faq" class="py-10 lg:py-24 scroll-mt-[82px]">
+                <div class="max-w-[930px] mx-auto px-6 rounded-3xl">
+                    <div class="bg-mediko-gradient mediko-rounded-overlay relative overflow-hidden rounded-[20px]">
+                        <div class="mediko-deco-circle deco-top-right w-[360px] h-[360px] md:w-[298px] md:h-[298px]"></div>
+                        <div class="mediko-deco-circle deco-bottom-left w-[220px] h-[220px] md:w-[256px] md:h-[256px]"></div>
 
-                    <div class="grid md:grid-cols-2 gap-10">
-                        <div class="space-y-4">
-                            <!-- FAQ 1 -->
-                            <div x-data="{ open: true }" class="pb-4">
-                                <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
-                                    <span>Kenapa memilih PPDS Mediko</span>
-                                    <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
-                                </button>
-                                <div x-show="open" x-collapse class="mt-6 text-gray-600 text-base leading-relaxed pl-3.5">
-                                    MEDIKO.ID adalah try-out kedokteran terbaik, yang menyediakan soal yang berkualitas, pembahasan dan video pembahasan yang berkualitas, menyesuaikan dengan silabus
-                                    UKMPPD dan tingkat kesusahan yang bertingkat sesuai dengan perubahan paket soal dari waktu. Harga yang murah dengan kualitas nomor SATU! Menyesuaikan dengan kantong
-                                    mahasiswa ya gengs!
+                        <div class="py-[46px] px-16">                          
+                            <div class="text-center mb-12">
+                                <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                                    <i class="ph ph-question text-[32px] text-[#155DFC]"></i>
+                                </div>
+                                <h2 class="text-4xl font-bold text-white mb-4">Pertanyaan yang Sering Diajukan</h2>
+                                <p class="text-lg font-normal text-white leading-7">Temukan jawaban untuk pertanyaan umum seputar program PPDS</p>
+                            </div>                                
+
+                            <div class="grid grid-1 md:grid-cols-1 gap-10">
+                                <div class="space-y-4">
+                                    <!-- FAQ 1 -->
+                                    <div x-data="{ open: true }" class="bg-white rounded-2xl">
+                                        <button @click="open = !open" class="flex justify-between items-center w-full text-left text-lg font-semibold transition py-5 px-6 text-gray-600">
+                                            <span>Kenapa memilih PPDS Mediko</span>
+                                            <i :class="open ? 'ph ph-caret-up text-xl' : 'ph ph-caret-down text-xl'"></i>
+                                        </button>
+                                        <div x-show="open" x-collapse class="text-gray-600 text-base leading-relaxed pt-4 px-6 pb-6 border-t border-gray-200">
+                                            MEDIKO.ID adalah try-out kedokteran terbaik, yang menyediakan soal yang berkualitas, pembahasan dan video pembahasan yang berkualitas, menyesuaikan dengan silabus
+                                            UKMPPD dan tingkat kesusahan yang bertingkat sesuai dengan perubahan paket soal dari waktu. Harga yang murah dengan kualitas nomor SATU! Menyesuaikan dengan kantong
+                                            mahasiswa ya gengs!
+                                        </div>
+                                    </div>
+
+                                    <!-- FAQ 2 -->
+                                    <div x-data="{ open: false }" class="bg-white rounded-2xl">
+                                        <button @click="open = !open" class="flex justify-between items-center w-full text-left text-lg font-semibold transition py-5 px-6 text-gray-600">
+                                            <span>Kenapa memilih PPDS Mediko</span>
+                                            <i :class="open ? 'ph ph-caret-up text-xl' : 'ph ph-caret-down text-xl'"></i>
+                                        </button>
+                                        <div x-show="open" x-collapse class="text-gray-600 text-base leading-relaxed pt-4 px-6 pb-6 border-t border-gray-200">
+                                            MEDIKO.ID adalah try-out kedokteran terbaik, yang menyediakan soal yang berkualitas, pembahasan dan video pembahasan yang berkualitas, menyesuaikan dengan silabus
+                                            UKMPPD dan tingkat kesusahan yang bertingkat sesuai dengan perubahan paket soal dari waktu. Harga yang murah dengan kualitas nomor SATU! Menyesuaikan dengan kantong
+                                            mahasiswa ya gengs!
+                                        </div>
+                                    </div>
+
+                                    <!-- FAQ 3 -->
+                                    <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
+                                        <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
+                                            <span>Apakah bisa mencoba tryout secara gratis?</span>
+                                            <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
+                                        </button>
+                                        <div x-show="open" x-collapse class="mt-2 text-gray-600 text-sm leading-relaxed">
+                                            Ya, kamu bisa mencoba beberapa soal secara gratis untuk merasakan pengalaman sistem tryout Mediko.id sebelum memutuskan berlangganan penuh.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div x-data="{ open: true }" class="border-b border-gray-200 pb-4">
+                                        <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
+                                            <span>Kenapa memilih PPDS Mediko</span>
+                                            <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
+                                        </button>
+                                        <div x-show="open" x-collapse class="mt-2 text-gray-600 text-sm leading-relaxed">
+                                            MEDIKO.ID adalah try-out kedokteran terbaik, yang menyediakan soal yang berkualitas, pembahasan dan video pembahasan yang berkualitas, menyesuaikan dengan silabus
+                                            UKMPPD dan tingkat kesusahan yang bertingkat sesuai dengan perubahan paket soal dari waktu. Harga yang murah dengan kualitas nomor SATU! Menyesuaikan dengan kantong
+                                            mahasiswa ya gengs!
+                                        </div>
+                                    </div>
+
+                                    <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
+                                        <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
+                                            <span>Apa kelebihan tryout di Mediko.id?</span>
+                                            <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
+                                        </button>
+                                        <div x-show="open" x-collapse class="mt-2 text-gray-600 text-sm leading-relaxed">
+                                            Tryout Mediko.id dilengkapi pembahasan lengkap, penilaian real-time, dan rekomendasi belajar yang disesuaikan untuk membantu kamu fokus di bagian yang perlu
+                                            ditingkatkan.
+                                        </div>
+                                    </div>
+
+                                    <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
+                                        <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
+                                            <span>Apakah bisa mencoba tryout secara gratis?</span>
+                                            <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
+                                        </button>
+                                        <div x-show="open" x-collapse class="mt-2 text-gray-600 text-sm leading-relaxed">
+                                            Ya, kamu bisa mencoba beberapa soal secara gratis untuk merasakan pengalaman sistem tryout Mediko.id sebelum memutuskan berlangganan penuh.
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- FAQ 2 -->
-                            <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
-                                <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
-                                    <span>Apa kelebihan tryout di Mediko.id?</span>
-                                    <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
-                                </button>
-                                <div x-show="open" x-collapse class="mt-2 text-gray-600 text-sm leading-relaxed">
-                                    Tryout Mediko.id dilengkapi pembahasan lengkap, penilaian real-time, dan rekomendasi belajar yang disesuaikan untuk membantu kamu fokus di bagian yang perlu
-                                    ditingkatkan.
-                                </div>
-                            </div>
 
-                            <!-- FAQ 3 -->
-                            <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
-                                <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
-                                    <span>Apakah bisa mencoba tryout secara gratis?</span>
-                                    <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
-                                </button>
-                                <div x-show="open" x-collapse class="mt-2 text-gray-600 text-sm leading-relaxed">
-                                    Ya, kamu bisa mencoba beberapa soal secara gratis untuk merasakan pengalaman sistem tryout Mediko.id sebelum memutuskan berlangganan penuh.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div x-data="{ open: true }" class="border-b border-gray-200 pb-4">
-                                <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
-                                    <span>Kenapa memilih PPDS Mediko</span>
-                                    <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
-                                </button>
-                                <div x-show="open" x-collapse class="mt-2 text-gray-600 text-sm leading-relaxed">
-                                    MEDIKO.ID adalah try-out kedokteran terbaik, yang menyediakan soal yang berkualitas, pembahasan dan video pembahasan yang berkualitas, menyesuaikan dengan silabus
-                                    UKMPPD dan tingkat kesusahan yang bertingkat sesuai dengan perubahan paket soal dari waktu. Harga yang murah dengan kualitas nomor SATU! Menyesuaikan dengan kantong
-                                    mahasiswa ya gengs!
-                                </div>
-                            </div>
-
-                            <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
-                                <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
-                                    <span>Apa kelebihan tryout di Mediko.id?</span>
-                                    <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
-                                </button>
-                                <div x-show="open" x-collapse class="mt-2 text-gray-600 text-sm leading-relaxed">
-                                    Tryout Mediko.id dilengkapi pembahasan lengkap, penilaian real-time, dan rekomendasi belajar yang disesuaikan untuk membantu kamu fokus di bagian yang perlu
-                                    ditingkatkan.
-                                </div>
-                            </div>
-
-                            <div x-data="{ open: false }" class="border-b border-gray-200 pb-4">
-                                <button @click="open = !open" class="flex justify-between items-center w-full text-left text-secondary text-lg font-semibold hover:text-secondary-content transition">
-                                    <span>Apakah bisa mencoba tryout secara gratis?</span>
-                                    <i :class="open ? 'ph ph-minus text-xl' : 'ph ph-plus text-xl'"></i>
-                                </button>
-                                <div x-show="open" x-collapse class="mt-2 text-gray-600 text-sm leading-relaxed">
-                                    Ya, kamu bisa mencoba beberapa soal secara gratis untuk merasakan pengalaman sistem tryout Mediko.id sebelum memutuskan berlangganan penuh.
-                                </div>
+                            <div class="text-center bg-gradient-teal p-8 rounded-2xl mt-10">
+                                <h2 class="text-2xl text-[#101828] font-bold mb-2.5">Masih ada pertanyaan ?</h2>
+                                <p class="text-lg font-normal text-[#4A5565] leading-7 mb-6">Tim kami siap membantu menjawab pertanyaan Anda</p>
+                                <a href="https://api.whatsapp.com/send?phone=" class="btn bg-[#00A6F4] rounded-[10px] btn-lg text-base min-w-56 font-normal text-white">
+                                    <i class="ph-light ph-whatsapp-logo text-2xl font-bold"></i>
+                                    Hubungi Kami
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section id="home-cta" class="pt-16 pb-30 relative overflow-hidden">
-                <div class="container mx-auto px-6 text-center">
-                    <h2 class="text-3xl font-bold text-center mb-10">
-                        Masih bingung pilih course yang tepat?
-                        <br />
-                        Dapatkan solusinya disini
-                    </h2>
-
-                    <a href="https://api.whatsapp.com/send?phone=" class="btn btn-accent btn-lg text-base min-w-56 font-medium">
-                        <i class="ph-light ph-whatsapp-logo text-2xl font-bold"></i>
-                        Hubungi Kami
-                    </a>
-                </div>
+                </div>                
             </section>
         </main>
 
         <!-- Footer -->
-        <footer class="bg-primary text-white">
+        <footer class="bg-[#00274C] text-white text-sm">
             <div class="container mx-auto">
                 <div class="px-6 xl:px-0 py-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                     <!-- Logo & Social -->
@@ -637,22 +816,22 @@
                         <!-- Get in touch -->
                         <div>
                             <h3 class="font-semibold text-lg text-white mb-4">Get in touch</h3>
-                            <p class="text-base font-light text-white">
+                            <p class="text-sm font-light text-white">
                                 Jl. Bukit Cemara Residence No.4b,
                                 <br />
                                 Bulusan, Kec. Tembalang, Kota Semarang,
                                 <br />
                                 Jawa Tengah 50278
                             </p>
-                            <p class="mt-3 text-base text-white">Phone: (024) 123456</p>
-                            <p class="text-base text-white">Email: info@mediko.id</p>
+                            <p class="mt-3 text-sm text-white">Phone: (024) 123456</p>
+                            <p class="text-sm text-white">Email: info@mediko.id</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Bottom bar -->
-            <div class="bg-accent">
+            <div class="bg-[#00274C]">
                 <div class="container mx-auto px-6 xl:px-0">
                     <div class="py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-100">
                         <p class="text-white">Copyright © 2025 Mediko ID. All Rights Reserved</p>
@@ -706,7 +885,7 @@
 
             document.addEventListener("DOMContentLoaded", function () {
                 new Swiper(".swipTestimonial", {
-                    slidesPerView: 3,
+                    slidesPerView: 1,
                     spaceBetween: 24,
                     navigation: {
                         nextEl: ".swiper-button-next",
@@ -714,8 +893,8 @@
                     },
                     breakpoints: {
                         0: { slidesPerView: 1 },
-                        768: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
+                        768: { slidesPerView: 3 },
+                        1024: { slidesPerView: 4 },
                     },
                 });
             });

@@ -12,7 +12,7 @@
 
     <body x-data="{ sidebarOpen: window.innerWidth >= 1024 }" class="h-screen flex overflow-hidden font-display">
         <!-- Sidebar -->
-        <aside class="bg-[#F9FAFB] flex flex-col justify-between transition-all duration-300 h-full lg:static inset-y-0 left-0 z-40 overflow-hidden" :class="sidebarOpen ? 'w-[220px]' : 'w-0 md:w-16'">
+        <aside class="flex flex-col justify-between transition-all duration-300 h-full lg:static inset-y-0 left-0 z-40 overflow-hidden" :class="sidebarOpen ? 'w-[220px]' : 'w-0 md:w-16'">
             <!-- Sidebar Top -->
             <div class="flex flex-col h-full">
                 <!-- Logo -->
@@ -21,9 +21,16 @@
                         <img src="/assets/logo.png" alt="Mediko PPDS" class="w-[130px]" />
                     </a>
                 </div>
-
+                <div class="divider my-1"></div>
                 <!-- Menu -->
-                <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+                <nav class="flex-1 px-4 pb-4 pt-1 space-y-2 overflow-y-auto">
+                    <a href="./index.html.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class=" w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-house text-lg text-base-content"></i>
+                        </div>
+                        <span x-show="sidebarOpen" class="text-sm">Homepage</span>
+                    </a>
+
                     <a href="./dashboard.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300 active">
                         <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
                             <i class="ph ph-squares-four text-lg text-base-content"></i>
@@ -31,39 +38,39 @@
                         <span x-show="sidebarOpen" class="text-sm">Dashboard</span>
                     </a>
 
-                    <a href="./dashboard-course.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
-                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
-                            <i class="ph ph-book-bookmark text-lg text-base-content"></i>
+                    <a href="./dashboard-course.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class="w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-book-open text-lg text-base-content"></i>
                         </div>
                         <span x-show="sidebarOpen" class="text-sm">My Course</span>
                     </a>
 
-                    <a href="./dashboard-materials.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
-                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                    <a href="./dashboard-materials.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class=" w-[22px] h-[22px] items-center rounded-sm flex justify-center">
                             <i class="ph ph-notebook text-lg text-base-content"></i>
                         </div>
                         <span x-show="sidebarOpen" class="text-sm">Open Material</span>
                     </a>
 
-                    <a href="./dashboard-tryout.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
-                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
-                            <i class="ph ph-list-checks text-lg text-base-content"></i>
+                    <a href="./dashboard-tryout.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class="w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-file-text text-lg text-base-content"></i>
                         </div>
                         <span x-show="sidebarOpen" class="text-sm">Try Out</span>
                     </a>
 
-                    <a href="./dashboard-transaction.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
-                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
-                            <i class="ph ph-scroll text-lg text-base-content"></i>
+                    <a href="./dashboard-transaction.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class="w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-clock text-lg text-base-content"></i>
                         </div>
                         <span x-show="sidebarOpen" class="text-sm">Transaction History</span>
                     </a>
 
-                    <a href="#" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300">
-                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
-                            <i class="ph ph-sign-out text-lg text-base-content"></i>
+                    <a href="#" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300 mt-4">
+                        <div class="w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-sign-out text-lg text-error"></i>
                         </div>
-                        <span x-show="sidebarOpen" class="text-sm">Sign Out</span>
+                        <span x-show="sidebarOpen" class="text-sm text-error">Sign Out</span>
                     </a>
                 </nav>
             </div>
@@ -91,7 +98,7 @@
                 </button>
 
                 <div class="dropdown dropdown-end">
-                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar mr-2 md:mr-4">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar mr-2 md:mr-4 border-2 border-[#00B8DA]">
                         <div class="w-10 rounded-full">
                             <img alt="Profile" src="https://i.pravatar.cc/100?img=3" />
                         </div>
@@ -122,104 +129,269 @@
             <!-- Page Content -->
             <div class="pt-6 pb-10 md:pb-20 lg:px-6 xl:px-10 overflow-y-auto flex-1 bg-white">
                 <div class="banner mb-8 lg:mb-14">
+                    <div class="container mx-auto px-4 bg-mediko-gradient-portrait-reverse rounded-2xl">
+                        <div class="p-8">
+                            <h2 class="text-2xl font-semibold text-white mb-2">Selamat datang, Mediko</h2>
+                            <p class="text-base font-medium text-white">Lanjutkan pembelajaran Anda dari sini pertama kali!</p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="recent mb-8">
                     <div class="container mx-auto px-4">
-                        <div class="rounded-xl overflow-hidden h-[234px]">
-                            <img src="/assets/dummy-slide.jpg" alt="" class="w-full h-full object-cover object-center" />
+                        <h2 class="text-2xl font-semibold mb-8">Recent Course</h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                            <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                                <a href="">
+                                    <div class="relative">
+                                        <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                                        <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg capitalize">Orthopaedi</span>
+                                    </div>
+
+                                    <div class="p-4">
+                                        <div class="flex flex-wrap items-center gap-6 mb-2.5">
+                                            <div class="flex items-center gap-2">
+                                                <i class="ph ph-book-open"></i>
+                                                <span>4 Lessons</span>
+                                            </div>
+
+                                            <div class="flex items-center gap-2">
+                                                <i class="ph ph-users"></i>
+                                                <span>428 Peserta</span>
+                                            </div>
+                                        </div>
+
+                                        <h2 class="text-base font-semibold text-secondary mb-3">
+                                            <a href="" class="hover:text-secondary-content transition-colors duration-200">Dermatologi Dasar - Penanganan Kulit</a>
+                                        </h2>
+
+                                        <p class="text-[#4A5565]">Pelajari prinsip-prinsip dermatologi untuk menangani berbagai masalah kulit secara pro</p>
+                                        
+                                        <div class="mb-3 mt-2.5">
+                                            <div class="flex justify-between">
+                                                <span class="text-sm">Progress</span>
+                                                <span class="text-sm">40%</span>
+                                            </div>
+                                            <progress class="progress progress-primary w-full" value="40" max="100"></progress>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                                <div class="relative">
+                                    <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                                    <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg capitalize">Orthopaedi</span>
+                                </div>
+
+                                <div class="p-4">
+                                    <div class="flex flex-wrap items-center gap-6 mb-2.5">
+                                        <div class="flex items-center gap-2">
+                                            <i class="ph ph-book-open"></i>
+                                            <span>4 Lessons</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-2">
+                                            <i class="ph ph-users"></i>
+                                            <span>428 Peserta</span>
+                                        </div>
+                                    </div>
+
+                                    <h2 class="text-base font-semibold text-secondary mb-3">
+                                        <a href="" class="hover:text-secondary-content transition-colors duration-200">Dermatologi Dasar - Penanganan Kulit</a>
+                                    </h2>
+
+                                    <p>Pelajari prinsip-prinsip dermatologi untuk menangani berbagai masalah kulit secara pro</p>
+                                    
+                                    <div class="mb-3 mt-2.5">
+                                        <div class="flex justify-between">
+                                            <span class="text-sm">Progress</span>
+                                            <span class="text-sm">40%</span>
+                                        </div>
+                                        <progress class="progress progress-primary w-full" value="40" max="100"></progress>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                                <div class="relative">
+                                    <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                                    <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg capitalize">Orthopaedi</span>
+                                </div>
+
+                                <div class="p-4">
+                                    <div class="flex flex-wrap items-center gap-6 mb-2.5">
+                                        <div class="flex items-center gap-2">
+                                            <i class="ph ph-book-open"></i>
+                                            <span>4 Lessons</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-2">
+                                            <i class="ph ph-users"></i>
+                                            <span>428 Peserta</span>
+                                        </div>
+                                    </div>
+
+                                    <h2 class="text-base font-semibold text-secondary mb-3">
+                                        <a href="" class="hover:text-secondary-content transition-colors duration-200">Dermatologi Dasar - Penanganan Kulit</a>
+                                    </h2>
+
+                                    <p>Pelajari prinsip-prinsip dermatologi untuk menangani berbagai masalah kulit secara pro</p>
+                                    
+                                    <div class="mb-3 mt-2.5">
+                                        <div class="flex justify-between">
+                                            <span class="text-sm">Progress</span>
+                                            <span class="text-sm">40%</span>
+                                        </div>
+                                        <progress class="progress progress-primary w-full" value="40" max="100"></progress>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="materials mb-8 lg:mb-14">
                     <div class="container mx-auto px-4">
-                        <p class="text-xl md:text-xl font-medium mb-10">Selamat datang Joyko!</p>
                         <h2 class="text-xl md:text-2xl font-semibold mb-8">Bahan belajar yang mungkin Anda suka</h2>
                         <div class="swiper swipCategory">
                             <div class="swiper-wrapper">
                                 <!-- Slide 1 -->
                                 <div class="swiper-slide">
-                                    <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                        <div class="relative rounded-xl overflow-hidden">
-                                            <img src="/assets/default-image.png" alt="" class="w-full h-auto object-cover rounded-xl" />
-                                            <div>
-                                                <div class="bg-[#3AA0B7]/15 text-white rounded-lg absolute top-4 left-6 text-sm font-medium py-1 px-2">Kedokteran Gigi</div>
-                                                <p class="absolute bottom-4 left-6 text-white font-semibold">VOD PPDS Bidang Interna</p>
+                                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                                        <a href="">
+                                            <div class="relative">
+                                                <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                                                <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg capitalize">Orthopaedi</span>
                                             </div>
-                                        </div>
-                                    </a>
+
+                                            <div class="p-4">
+                                                <div class="flex flex-wrap items-center gap-6 mb-2.5">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ph ph-book-open"></i>
+                                                        <span>4 Lessons</span>
+                                                    </div>
+
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ph ph-users"></i>
+                                                        <span>428 Peserta</span>
+                                                    </div>
+                                                </div>
+
+                                                <h2 class="text-base font-semibold text-secondary mb-3">
+                                                    <a href="" class="hover:text-secondary-content transition-colors duration-200">Dermatologi Dasar - Penanganan Kulit</a>
+                                                </h2>
+
+                                                <p class="text-[#4A5565]">Pelajari prinsip-prinsip dermatologi untuk menangani berbagai masalah kulit secara pro</p>
+                                               
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <div class="swiper-slide">
-                                    <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                        <div class="relative rounded-xl overflow-hidden">
-                                            <img src="/assets/course-image.jpg" alt="" class="w-full h-auto object-cover rounded-xl" />
-                                            <div>
-                                                <div class="bg-[#3AA0B7]/15 text-white rounded-lg absolute top-4 left-6 text-sm font-medium py-1 px-2">Kedokteran Gigi</div>
-                                                <p class="absolute bottom-4 left-6 text-white font-semibold">VOD PPDS Bidang Interna</p>
+                                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                                        <a href="">
+                                            <div class="relative">
+                                                <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                                                <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg capitalize">Orthopaedi</span>
                                             </div>
-                                        </div>
-                                    </a>
+
+                                            <div class="p-4">
+                                                <div class="flex flex-wrap items-center gap-6 mb-2.5">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ph ph-book-open"></i>
+                                                        <span>4 Lessons</span>
+                                                    </div>
+
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ph ph-users"></i>
+                                                        <span>428 Peserta</span>
+                                                    </div>
+                                                </div>
+
+                                                <h2 class="text-base font-semibold text-secondary mb-3">
+                                                    <a href="" class="hover:text-secondary-content transition-colors duration-200">Dermatologi Dasar - Penanganan Kulit</a>
+                                                </h2>
+
+                                                <p class="text-[#4A5565]">Pelajari prinsip-prinsip dermatologi untuk menangani berbagai masalah kulit secara pro</p>
+                                               
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <div class="swiper-slide">
-                                    <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                        <div class="relative rounded-xl overflow-hidden">
-                                            <img src="/assets/default-image.png" alt="" class="w-full h-auto object-cover rounded-xl" />
-                                            <div>
-                                                <div class="bg-[#3AA0B7]/15 text-white rounded-lg absolute top-4 left-6 text-sm font-medium py-1 px-2">Kedokteran Gigi</div>
-                                                <p class="absolute bottom-4 left-6 text-white font-semibold">VOD PPDS Bidang Interna</p>
+                                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                                        <a href="">
+                                            <div class="relative">
+                                                <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                                                <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg capitalize">Orthopaedi</span>
                                             </div>
-                                        </div>
-                                    </a>
+
+                                            <div class="p-4">
+                                                <div class="flex flex-wrap items-center gap-6 mb-2.5">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ph ph-book-open"></i>
+                                                        <span>4 Lessons</span>
+                                                    </div>
+
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ph ph-users"></i>
+                                                        <span>428 Peserta</span>
+                                                    </div>
+                                                </div>
+
+                                                <h2 class="text-base font-semibold text-secondary mb-3">
+                                                    <a href="" class="hover:text-secondary-content transition-colors duration-200">Dermatologi Dasar - Penanganan Kulit</a>
+                                                </h2>
+
+                                                <p class="text-[#4A5565]">Pelajari prinsip-prinsip dermatologi untuk menangani berbagai masalah kulit secara pro</p>
+                                               
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <div class="swiper-slide">
-                                    <a href="#" class="block bg-white rounded-2xl shadow-soft transition text-center">
-                                        <div class="relative rounded-xl overflow-hidden">
-                                            <img src="/assets/course-image.jpg" alt="" class="w-full h-auto object-cover rounded-xl" />
-                                            <div>
-                                                <div class="bg-[#3AA0B7]/15 text-white rounded-lg absolute top-4 left-6 text-sm font-medium py-1 px-2">Kedokteran Gigi</div>
-                                                <p class="absolute bottom-4 left-6 text-white font-semibold">VOD PPDS Bidang Interna</p>
+                                    <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
+                                        <a href="">
+                                            <div class="relative">
+                                                <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                                                <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg capitalize">Orthopaedi</span>
                                             </div>
-                                        </div>
-                                    </a>
+
+                                            <div class="p-4">
+                                                <div class="flex flex-wrap items-center gap-6 mb-2.5">
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ph ph-book-open"></i>
+                                                        <span>4 Lessons</span>
+                                                    </div>
+
+                                                    <div class="flex items-center gap-2">
+                                                        <i class="ph ph-users"></i>
+                                                        <span>428 Peserta</span>
+                                                    </div>
+                                                </div>
+
+                                                <h2 class="text-base font-semibold text-secondary mb-3">
+                                                    <a href="" class="hover:text-secondary-content transition-colors duration-200">Dermatologi Dasar - Penanganan Kulit</a>
+                                                </h2>
+
+                                                <p class="text-[#4A5565]">Pelajari prinsip-prinsip dermatologi untuk menangani berbagai masalah kulit secara pro</p>
+                                               
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="recent">
-                    <div class="container mx-auto px-4">
-                        <h2 class="text-2xl font-semibold mb-8">Recent Course</h2>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-                            <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
-                                <div class="relative">
-                                    <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
-                                </div>
-
-                                <div class="p-4">
-                                    <h2 class="text-xl font-semibold text-secondary mb-4">
-                                        <a href="" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna</a>
-                                    </h2>
-                                    <div class="flex items-center text-sm mb-5">
-                                        <i class="ph ph-book-bookmark text-lg mr-1"></i>
-                                        28 Lessons
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="flex justify-between">
-                                            <span class="text-sm">In progress</span>
-                                            <span class="text-sm">40%</span>
-                                        </div>
-                                        <progress class="progress progress-primary w-full" value="40" max="100"></progress>
-                                    </div>
-
-                                    <button class="btn btn-accent btn-lg text-white text-base font-normal w-full box-border">Learn Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </main>
 

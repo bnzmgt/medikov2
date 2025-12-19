@@ -1,65 +1,104 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "daisyui/theme" {
     name: "mediko";
     default: true;
-    --color-primary: #68cad5;
-    --color-secondary: #0061b9;
-    --color-secondary-content: #328bcb;
-    --color-accent: #3aa0b7;
-    --color-base-content: #667085;
-    --color-error: #c12121;
-    --color-warning: #eab308;
-    --color-info: #0061b9;
-    --color-success: #21b8bb;
+      /* ===== Brand Colors ===== */
+  --color-primary: #086AAB;              /* Hero, CTA utama */
+  --color-primary-content: #1278bb;
 
+  --color-secondary: #101828;            /* Navbar, footer, heading penting */
+  --color-secondary-content: #375083;
+
+  --color-accent: #3AA0B7;               /* Icon, highlight, hover */
+  --color-accent-content: #ffffff;
+
+  /* ===== Base / Neutral ===== */
+  --color-base-100: #ffffff;             /* Background utama */
+  --color-base-200: #F5F9FC;             /* Section background */
+  --color-base-300: #E6EEF5;             /* Border / divider */
+  --color-base-content: #475467;         /* Text utama (bukan hitam) */
+
+  /* ===== State Colors ===== */
+  --color-info: #00A6F4;                  /* Info badge */
+  --color-success: #21B8BB;               /* Statistik / success state */
+  --color-warning: #F59E0B;               /* Warning soft */
+  --color-error: #C12121;                 /* Error muted */
+
+  /* ===== Radius (opsional tapi recommended) ===== */
+  --radius-box: 1rem;     /* card */
+  --radius-btn: 0.75rem;  /* button */
+  --radius-badge: 0.5rem;
 }
 
-@font-face {
-    font-family: 'SanFrancisco'; /* Choose a name for your font */
-    src: url('./fonts/SFUIDisplay-Regular.woff2') format('woff2'),
-        url('./fonts/SFUIDisplay-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap; /* Optional: controls font loading behavior */
+.sort-item {
+    @apply w-full text-left px-4 py-2 text-sm hover:bg-base-200 transition;
 }
 
-@font-face {
-    font-family: 'SanFrancisco'; /* Choose a name for your font */
-    src: url('./fonts/SFUIDisplay-Light.woff2') format('woff2'),
-        url('./fonts/SFUIDisplay-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap; /* Optional: controls font loading behavior */
+@layer utilities {
+    .bg-gradient-teal {
+        background: linear-gradient(
+            180deg,
+            #EFF6FF 0%,
+            #EEF2FF 100%
+        );
+    }
+
+    .bg-gradient-card {
+        background: linear-gradient(
+            180deg,
+            #2E99D600 0%,
+            #2E99D6 100%
+        );
+    }
+
+    .bg-mediko-gradient-portrait {
+        background: linear-gradient(
+            90deg,
+            #01A4C9 0%,
+            #1477B9 100%
+            
+        );
+    }
+
+    .bg-mediko-gradient-portrait-reverse {
+        background: linear-gradient(
+            90deg,
+            #1477B9 0%,
+            #01A4C9 100%
+        );
+    }
+
+    .bg-mediko-gradient {
+        background: linear-gradient(
+            180deg,
+            #086AAB 0%,
+            #1B96B4 100%
+        );
+    }
+
+    .mediko-deco-circle {
+        position: absolute;
+        border-radius: 9999px;
+        background-color: #ffffff;
+        opacity: 0.15;
+        pointer-events: none;
+    }
+
+    .deco-top-right {
+        top: 0;
+        right: 0;
+        transform: translate(30%, -30%);
+    }
+
+    .deco-bottom-left {
+        bottom: 0;
+        left: 0;
+        transform: translate(-30%, 30%);
+    }
 }
 
-@font-face {
-    font-family: 'SanFrancisco'; /* Choose a name for your font */
-    src: url('./fonts/SFUIDisplay-Ultralight.woff2') format('woff2'),
-        url('./fonts/SFUIDisplay-Ultralight.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap; /* Optional: controls font loading behavior */
-}
-
-@font-face {
-    font-family: 'SanFrancisco'; /* Choose a name for your font */
-    src: url('./fonts/SFUIDisplay-Semibold.woff2') format('woff2'),
-        url('./fonts/SFUIDisplay-Semibold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap; /* Optional: controls font loading behavior */
-}
-
-@font-face {
-    font-family: 'SanFrancisco'; /* Choose a name for your font */
-    src: url('./fonts/SFUIDisplay-Bold.woff2') format('woff2'),
-        url('./fonts/SFUIDisplay-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap; /* Optional: controls font loading behavior */
-}
 
 html,
 body {
@@ -84,22 +123,22 @@ html {
 }
 
 @theme {
-    --font-heading: "SanFrancisco", sans-serif;
-    --font-display: "SanFrancisco", sans-serif;
-    --font-sans: "SanFrancisco", sans-serif;
-    --font-mono: "SanFrancisco", sans-serif;
+    --font-heading: "Commissioner", sans-serif;
+    --font-display: "Commissioner", sans-serif;
+    --font-sans: "Commissioner", sans-serif;
+    --font-mono: "Commissioner", sans-serif;
 
     --gradient-blue: linear-gradient(190deg, #68cad5 0%, #43a5cb 40%, #3495c7 57%, #0061b9 100%);
 
     /* button primary */
-    --gradient-primary: linear-gradient(90deg, #68cad5 0%, #52bbc7 100%);
+    --gradient-primary: linear-gradient(180deg, #1878B8 0%, #32AAC7 100%);
     --gradient-primary-hover: linear-gradient(90deg, #68cad5 0%, #68cad5 100%);
     --stroke-primary: #53b3d9;
 
     /* button warning */
     --gradient-warning: linear-gradient(180deg, #eab308 0%, #facc15 100%);
     --gradient-warning-hover: linear-gradient(180deg, #eab308 0%, #eab308 100%);
-    --stroke-warning: #eab308;
+    /* --stroke-warning: #eab308; */
 
     /* button info */
     --gradient-info: linear-gradient(180deg, #0061b9 0%, #2b8cc8 100%);
@@ -311,18 +350,23 @@ html {
 /* nav dashboard */
 nav {
     a {
+        &:hover {
+            i, span {
+                @apply text-[#155DFC];
+            }
+        }
         &.active {
 
             div {
-                @apply bg-secondary text-white;
+                @apply bg-[#EFF6FF] text-[#155DFC];
 
                 i {
-                    @apply text-white;
+                    @apply text-[#155DFC];
                 }
             }
 
             span {
-                @apply text-secondary;
+                @apply text-[#155DFC];
             }
 
         }
@@ -425,7 +469,7 @@ nav {
 .pagination {
     li.active {
         a {
-            @apply bg-accent text-white;
+            @apply bg-primary text-white;
         }
     }
 }
