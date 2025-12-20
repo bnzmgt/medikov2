@@ -11,7 +11,7 @@
   --color-secondary: #101828;            /* Navbar, footer, heading penting */
   --color-secondary-content: #375083;
 
-  --color-accent: #3AA0B7;               /* Icon, highlight, hover */
+  --color-accent: #086AAB;               /* Icon, highlight, hover */
   --color-accent-content: #ffffff;
 
   /* ===== Base / Neutral ===== */
@@ -48,8 +48,13 @@
     .bg-gradient-card {
         background: linear-gradient(
             180deg,
-            #2E99D600 0%,
-            #2E99D6 100%
+            rgba(46,153,214,0)   0%,
+            rgba(46,153,214,0.12) 15%,
+            rgba(46,153,214,0.25) 30%,
+            rgba(46,153,214,0.55) 45%,
+            rgba(46,153,214,0.85) 55%,
+            rgba(46,153,214,1)   65%,
+            rgba(46,153,214,1)  100%
         );
     }
 
@@ -184,6 +189,12 @@ html {
     background: var(--gradient-blue);
 }
 
+.category-chip {
+    &.btn-active {
+        @apply bg-primary text-white;
+    }
+}
+
 /* button */
 .btn-tryout-unanswered {
     @apply rounded-sm transition-all duration-300 box-border text-white w-[42px] h-[42px];
@@ -254,12 +265,12 @@ html {
 
 .btn-accent {
     @apply px-6 py-3.5 rounded-lg transition-all duration-300 box-border text-white;
-    background: var(--gradient-accent);
-    border: 1px solid var(--stroke-accent);
+    background: var(--gradient-primary);
+    border: 1px solid var(--stroke-primary);
 }
 
 .btn-accent:hover {
-    background: var(--gradient-accent-hover);
+    background: var(--gradient-primary-hover);
     filter: brightness(1.05);
 }
 
@@ -380,7 +391,7 @@ nav {
 
 .ranking {
     .user-rank {
-        @apply bg-secondary text-white;
+        @apply bg-primary text-white;
 
         &.users {
             @apply bg-[#21B8BB]/15;

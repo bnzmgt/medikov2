@@ -121,7 +121,9 @@
             <!-- Page Content -->
             <div id="datas" class="pt-6 pb-10 md:pb-20 lg:px-6 xl:px-10 overflow-y-auto flex-1 bg-white">
                 <div class="container mx-auto px-6">
-                    <h2 class="text-xl font-bold text-secondary border-b border-secondary pb-6 mb-6">Open Material</h2>
+                    <div class="text-left">
+                        <h2 class="text-3xl font-medium mb-2.5 text-[#101828]">Open Material</h2>
+                    </div>
 
                     <div id="data-act">
                         <div class="py-6 overflow-y-auto flex-1 bg-white">
@@ -151,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="data-list" class="list grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <div id="data-list" class="list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Loop ini bisa diulang untuk setiap card -->
                         <div x-data="{ open: false }" class="relative">
                             <!-- Card -->

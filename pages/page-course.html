@@ -128,7 +128,7 @@
                         </div>
                         
                         <div class="flex flex-wrap gap-2 mt-6" id="category-chips">
-                            <button class="category-chip btn btn-sm outline-0 border-0 text-sm font-medium py-2 px-6 rounded-3xl active:bg-primary active:text-white active:translate-0" data-category="all">Semua</button>
+                            <button class="category-chip btn btn-sm outline-0 border-0 text-sm font-medium py-2 px-6 bg-[#F1F5F9] rounded-3xl text-gray-300" data-category="all">Semua</button>
                             <button class="category-chip btn btn-sm outline-0 border-0 text-sm font-medium py-2 px-6 bg-[#F1F5F9] rounded-3xl" data-category="ortopedi">Ortopedi</button>
                             <button class="category-chip btn btn-sm outline-0 border-0 text-sm font-medium py-2 px-6 bg-[#F1F5F9] rounded-3xl" data-category="kardiologi">Kardiologi</button>
                             <button class="category-chip btn btn-sm outline-0 border-0 text-sm font-medium py-2 px-6 bg-[#F1F5F9] rounded-3xl" data-category="dermatologi">Dermatologi</button>
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 
-                <div id="course-list" class="list grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <div id="course-list" class="list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="card item bg-base-100 shadow-md rounded-2xl overflow-hidden" data-popularity="78" data-date="2025-10-24 12:07:32" data-category="ortopedi">
                         <div class="relative">
                             <img src="/assets/course-image.jpg" class="w-full h-56 object-cover" alt="Course Thumbnail" />
@@ -150,11 +150,11 @@
                                 28 Lessons
                             </div>
 
-                            <h2 class="title text-xl font-semibold text-secondary mb-4 md:h-[48px]">
+                            <h2 class="title text-xl font-semibold text-secondary mb-4 md:h-[52px]">
                                 <a href="" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna Popular</a>
                             </h2>
                             
-                            <p class="description text-sm text-gray-500 mb-4 pb-4 border-b border-b-gray-200">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
+                            <p class="description text-sm text-gray-500 mb-4 pb-4 border-b border-b-gray-200 h-[57px]">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
 
                             <div class="price min-h-14 flex justify-between items-center">
                                 <div class="">
@@ -163,7 +163,7 @@
                                         <span class="price-disc-number line-through text-gray-500 text-xs ml-1">Rp. 1.500.000</span>
                                     </div>
                                     <div class="price-info flex justify-between items-center">
-                                        <div class="text-red-600 font-bold text-xl">Rp. 750.000</div>
+                                        <div class="text-primary font-bold text-xl">Rp. 750.000</div>
                                     </div>
                                 </div>
                                 <button class="btn btn-primary text-white text-base font-normal py-2 px-5 box-border leading-6">Daftar</button>
@@ -396,12 +396,28 @@
                 const chips = document.querySelectorAll(".category-chip");
                 const items = document.querySelectorAll("#course-list .item");
 
+                const defaultChip = document.querySelector('.category-chip[data-category="all"]');
+
+                if (defaultChip) {
+                    // aktifkan chip "All"
+                    chips.forEach(c => c.classList.remove("bg-primary", "text-white"));
+                    defaultChip.classList.add("bg-primary", "text-white");
+
+                    // tampilkan semua item
+                    items.forEach(item => {
+                        item.classList.remove("hidden");
+                    });
+
+                    // sync ke List.js
+                    courseList.update();
+                }
+
                 chips.forEach(chip => {
                     chip.addEventListener("click", () => {
                         const category = chip.dataset.category;
 
-                        chips.forEach(c => c.classList.remove("btn-active"));
-                        chip.classList.add("btn-active");
+                        chips.forEach(c => c.classList.remove("bg-primary", "text-white"));
+                        chip.classList.add("bg-primary", "text-white");
 
                         items.forEach(item => {
                             const match =
