@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ sidebarOpen: true }" xmlns="http://www.w3.org/1999/xhtml" data-theme="mediko">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" data-theme="mediko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,18 +10,17 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     </head>
 
-    <body x-data="{ sidebarOpen: window.innerWidth >= 1024 }" class="h-screen flex overflow-hidden font-display">
+    <body x-data="{ sidebarOpen: window.innerWidth >= 768 }" class="h-screen flex overflow-hidden font-display">
         <!-- Sidebar -->
         <aside class="flex flex-col justify-between transition-all duration-300 h-full lg:static inset-y-0 left-0 z-40 overflow-hidden" :class="sidebarOpen ? 'w-[220px]' : 'w-0 md:w-16'">
             <!-- Sidebar Top -->
             <div class="flex flex-col h-full">
                 <!-- Logo -->
-                <div class="h-16 flex items-center justify-center font-bold text-xl">
+                <div class="h-16 flex items-center justify-center font-bold text-xl border-b border-gray-200 mb-3" :class="sidebarOpen ? 'px-4' : 'px-1'">
                     <a href="" class="font-bold text-xl">
-                        <img src="/assets/logo.png" alt="Mediko PPDS" class="w-[130px]" />
+                        <img src="/assets/logo.png" alt="Mediko PPDS" class="w-[130px]" :class="sidebarOpen ? 'p-1' : 'p-0'" />
                     </a>
                 </div>
-                <div class="divider my-1"></div>
                 <!-- Menu -->
                 <nav class="flex-1 px-4 pb-4 pt-1 space-y-2 overflow-y-auto">
                     <a href="./index.html.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
@@ -75,13 +74,11 @@
                 </nav>
             </div>
         </aside>
-
-        <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-30 lg:hidden"></div>
-
+    
         <!-- Main Content -->
-        <main class="flex-1 overflow-y-auto">
+        <main class="flex-1 overflow-y-auto relative">
             <!-- Header -->
-            <header class="sticky top-0 flex items-center justify-between px-4 h-16 z-20 bg-white">
+            <header class="sticky top-0 flex items-center justify-between px-4 h-16 z-30 bg-white">
                 <button @click="sidebarOpen = !sidebarOpen" class="btn border-0 bg-transparent btn-sm transition-all duration-300 ease-in-out">
                     <!-- Icon Wrapper -->
                     <span class="relative inline-block w-6 h-6">
@@ -126,12 +123,14 @@
                 </div>
             </header>
 
+            <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="absolute inset-0 bg-black/50 z-30 lg:hidden"></div>
+
             <!-- Page Content -->
-            <div class="pt-6 pb-10 md:pb-20 lg:px-6 xl:px-10 overflow-y-auto flex-1 bg-white">
+            <div class="px-4 pt-6 pb-10 md:pb-20 lg:px-6 xl:px-10 overflow-y-auto flex-1 bg-white z-20 relative">
                 <div class="banner mb-8 lg:mb-14">
-                    <div class="container mx-auto px-4 bg-mediko-gradient-portrait-reverse rounded-2xl">
-                        <div class="p-8">
-                            <h2 class="text-2xl font-semibold text-white mb-2">Selamat datang, Mediko</h2>
+                    <div class="container mx-auto px-4">
+                        <div class="p-8 bg-mediko-gradient-portrait-reverse rounded-2xl">
+                            <h2 class="text-2xl font-semibold text-white mb-2 flex items-center">Selamat datang, Mediko! <img src="/assets/icon-waving.png" class="w-6 h-6 ml-2" alt="Course Thumbnail" /></h2>
                             <p class="text-base font-medium text-white">Lanjutkan pembelajaran Anda dari sini pertama kali!</p>
                         </div>
                         
@@ -146,28 +145,28 @@
                             <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
                                 <a href="">
                                     <div class="relative">
-                                        <img src="/assets/course-image.jpg" class="w-full h-49 object-cover" alt="Course Thumbnail" />
+                                        <img src="/assets/course-image.jpg" class="w-full h-48 object-top object-cover" alt="Course Thumbnail" />
                                         <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg capitalize">Orthopaedi</span>
                                     </div>
 
                                     <div class="p-4">
-                                        <div class="flex flex-wrap items-center gap-6 mb-2.5">
-                                            <div class="flex items-center gap-2">
+                                        <div class="flex flex-wrap items-center gap-2 mb-2.5">
+                                            <div>
                                                 <i class="ph ph-book-open"></i>
                                                 <span>4 Lessons</span>
                                             </div>
 
-                                            <div class="flex items-center gap-2">
+                                            <div>
                                                 <i class="ph ph-users"></i>
                                                 <span>428 Peserta</span>
                                             </div>
                                         </div>
 
-                                        <h2 class="text-base font-semibold text-secondary mb-3">
-                                            <a href="" class="hover:text-secondary-content transition-colors duration-200">Dermatologi Dasar - Penanganan Kulit</a>
+                                        <h2 class="title text-base font-semibold text-secondary h-auto lg:h-[48px] mb-3 hover:text-secondary-content transition-colors duration-200 flex leading-snug overflow-hidden xl:items-end" title="">                                   
+                                            Dermatologi Dasar - Penanganan Kulit
                                         </h2>
 
-                                        <p class="text-[#4A5565]">Pelajari prinsip-prinsip dermatologi untuk menangani berbagai masalah kulit secara pro</p>
+                                        <p class="description text-sm h-[45px] text-[#4A5565] mb-3 overflow-hidden">Pelajari prinsip-prinsip dermatologi untuk menangani berbagai masalah kulit secara pro</p>
                                         
                                         <div class="mb-3 mt-2.5">
                                             <div class="flex justify-between">

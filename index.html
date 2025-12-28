@@ -72,39 +72,51 @@
 
         <!-- Content -->
         <main>
-            <section id="home-banner" class="relative bg-mediko-gradient min-h-[748px] overflow-hidden">
-                <div class="container mx-auto px-6 h-full">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[748px] items-start md:items-center">
+            <!-- <section id="home-banner" class="relative overflow-hidden">
+                <div class="w-full mx-auto">
 
-                        <div class="text-white max-w-xl z-10 py-16 md:py-0">
-                            <span class="inline-flex items-center gap-2 text-sm mb-5 bg-white/10 px-4 py-1 rounded-full border border-white p-2">
-                                ⭐ 4.9/5 dari 500+ Dokter
-                            </span>
-
-                            <h1 class="text-4xl lg:text-5xl font-semibold leading-tight mb-5 text-white">
-                                Partner Terbaik Dokter Indonesia Menuju Jenjang Spesialis
-                            </h1>
-
-                            <p class="text-[#EEEEEE] mb-6 text-xl">
-                                Akses materi kedokteran & video pembelajaran kapan saja,
-                                di mana saja. Metode belajar fleksibel menyesuaikan jadwal sibukmu.
-                            </p>
-
-                            <a href="#" class="btn btn-outline text-base text-white bg-info border-0 md:border border-white rounded-2xl py-3 px-6">Mulai Persiapan Sekarang <i class="ph ph-arrow-right transform transition-transform duration-300 group-hover:translate-x-1 text-xl"></i></a>
-
-                            <p class="text-sm text-[#B0E1EF] mt-4 italic">
-                                Gabung dengan 50.000+ Alumni yang sudah lolos
-                            </p>
+                    <div class="swiper swipHero sm:aspect-[16/10] md:aspect-auto lg:min-h-[70vh] lg:h-[748px]">
+                        <div class="swiper-wrapper h-full">
+                            <div class="swiper-slide h-full ">
+                                <img
+                                    src="/assets/dummy-slide.jpg"
+                                    alt="Hero"
+                                    class="w-full h-full
+                                        object-cover object-center
+                                        pointer-events-none"
+                                />
+                            </div>
                         </div>
 
-                        <div class="relative hidden md:block"></div>
+                        
+                        <div class="swiper-pagination !bottom-6"></div>
+                        <div class="swiper-button-prev hero-prev hidden md:flex"></div>
+                        <div class="swiper-button-next hero-next hidden md:flex"></div>
+
                     </div>
+
                 </div>
+            </section> -->
 
-                <img src="/assets/hero-image.png" alt="Dokter PPDS Mediko" class="absolute bottom-0 right-1/2 md:right-6 translate-x-1/2 md:translate-x-0 max-h-[60vh] md:max-h-[480px] lg:max-h-[640px] xl:max-h-[720px] w-auto object-contain pointer-events-none"
-                />
+            <section id="home-banner" class="relative overflow-hidden">
+                <div class="w-full mx-auto">
+
+                    <div class="swiper swipHero aspect-[21/9] bg-black">
+                        <div class="swiper-wrapper">
+                                <div class="swiper-slide flex items-center justify-center">
+                                    <img
+                                        src="/assets/dummy-slide.jpg"
+                                        alt="Hero"
+                                        class="w-full h-full object-contain select-none"
+                                        loading="lazy"
+                                    />
+                                </div>                        
+                        </div>
+                        <div class="swiper-pagination !bottom-6"></div>
+                    </div>
+
+                </div>
             </section>
-
 
             <section id="home-category" class="bg-[#F5F7F9] py-10 lg:py-24 scroll-mt-[82px]">
                 <div class="container mx-auto px-4">
@@ -240,10 +252,10 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                         <div class="card bg-base-100 shadow-md rounded-2xl overflow-hidden">
                             <div class="relative">
-                                <img src="/assets/course-image.jpg" class="w-full h-48 object-cover" alt="Course Thumbnail" />
+                                <img src="/assets/course-image.jpg" class="w-full h-52 md:h-[238px] object-top object-cover" alt="Course Thumbnail" />
                                 <span class="absolute top-4 left-4 inline-flex items-center gap-2 text-sm text-primary font-normal mb-4 bg-white px-3 py-2 rounded-lg">Orthopaedi</span>
                             </div>
 
@@ -252,11 +264,11 @@
                                     <i class="ph ph-file-text text-lg mr-1"></i>
                                     28 Lessons
                                 </div>
-                                <h2 class="text-xl font-semibold text-secondary mb-4 h-[52px]">
+                                <h2 class="text-lg lg:text-xl font-semibold text-secondary mb-4 h-[56px] overflow-hidden">
                                     <a href="" class="hover:text-secondary-content transition-colors duration-200">VOD PPDS Bidang Interna</a>
                                 </h2>
                                 
-                                <p class="text-sm text-gray-500 mb-4 min-h-10 h-[57px]">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
+                                <p class="text-sm text-gray-500 mb-4 pb-4 border-b border-b-gray-200 h-[57px]">Terdapat post-test untuk mengukur daya serta pemahaman kamu.</p>
 
                                 <div class="price min-h-14 flex justify-between items-center">
                                     <div class="">
@@ -475,7 +487,7 @@
 
             <section id="home-testimonial" class="pt-10 lg:py-24 scroll-mt-[82px]">
                 <div class="container mx-auto px-6">
-                    <div class="flex flex-col items-start md:flex-row justify-between md:items-center mb-4">
+                    <div class="flex flex-col items-start md:flex-row justify-between md:items-center mb-4 gap-2 md:gap-0">
                         <div class="text-left">
                             <h2 class="text-2xl tracking-tight font-bold mb-2 text-[#0F172B]">Apa Kata Para Peserta Course? </h2>
                             <p class="text-base leading-6">Mereka berbagi pengalaman tentang bagaimana materi dan fitur belajar membantu meningkatkan pemahaman mereka.</p>
@@ -491,8 +503,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative pl-6 md:pl-6 lg:pl-6 xl:pl-[calc((100vw-1280px)/2+24px)] 2xl:pl-[calc((100vw-1536px)/2+24px)] -ml-6 md:-ml-8">
-                    <div class="swiper swipTestimonial !px-6 !py-8 overflow-visible">
+                <div class="container mx-auto px-6">
+                <div class="relative ">
+                    <!-- <div class="relative pl-6 md:pl-6 lg:pl-6 xl:pl-[calc((100vw-1280px)/2+24px)] 2xl:pl-[calc((100vw-1536px)/2+24px)] -ml-6 md:-ml-8"> -->
+                    <div class="swiper swipTestimonial !px-6 md:!px-2 !py-8 overflow-visible">
                         <div class="swiper-wrapper items-stretch">
                             <!-- Card 1 -->
                             <div class="swiper-slide flex">
@@ -615,6 +629,7 @@
                             </div>
                         </div>
                    </div>
+                </div>
                 </div>
             </section>
 
@@ -853,7 +868,7 @@
             <div class="bg-[#00274C]">
                 <div class="container mx-auto px-6 xl:px-0">
                     <div class="py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-100 border-t border-white/50">
-                        <p class="text-white">Copyright © 2025 Mediko ID. All Rights Reserved</p>
+                        <p class="text-white">© 2025 Mediko ID. All Rights Reserved</p>
                         <div class="flex flex-row items-center gap-6">
                             <a href="#" class="mt-2 md:mt-0 hover:underline">Terms of Service</a>
                             <a href="#" class="mt-2 md:mt-0 hover:underline">Privacy Policy</a>

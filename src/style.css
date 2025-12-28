@@ -415,7 +415,7 @@ nav {
             }
 
             &.current-user {
-                @apply bg-secondary text-white;
+                @apply bg-primary text-white;
                 .rank-number {
                     @apply text-white;
                 }
