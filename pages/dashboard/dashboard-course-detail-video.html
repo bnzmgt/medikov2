@@ -79,6 +79,10 @@
         <!-- Overlay khusus mobile -->
         <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="fixed inset-0 bg-black/50 z-30 lg:hidden"></div>
 
+        <div class="drawer">
+            <input id="my-drawer-1" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content">
+
         <!-- Main Content -->
         <div class="h-screen flex flex-col" :class="sidebarOpen ? 'lg:pl-[330px]' : 'lg:pl-0'">
             <!-- Header -->
@@ -110,7 +114,7 @@
                         controls: ['play-large', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
                     });
                     "
-                    class="relative w-full bg-black aspect-video lg:h-[calc(100vh-8rem)]">
+                    class="relative w-full bg-black aspect-video max-h-[calc(100vh-8rem)]">
                     <div id="plyr" class="plyr__video-embed w-full h-full">
                         <iframe src="https://www.youtube.com/embed/bTqVqk7FSmY?autoplay=1&modestbranding=1&showinfo=0&controls=1" allowfullscreen allow="autoplay" class="w-full h-full"></iframe>
                     </div>
@@ -310,6 +314,72 @@
                 </div>
             </main>
         </div>
+
+        <label for="my-drawer-1" class="fixed bottom-6 right-4 flex flex-col gap-4 md:bottom-10 md:right-10 md:gap-2 z-40">
+                    <span class="flex h-14 w-14 bg-info cursor-pointer rounded-full bg-brand-color duration-300 hover:bg-brand-color/80 active:scale-90 md:h-18 md:w-18">
+                        <i class="ph-bold ph-sidebar m-auto text-lg text-white md:text-2xl"></i>
+                    </span>
+                    
+                </label>
+            </div>
+            <div class="drawer-side z-50">                
+                <label for="my-drawer-1" aria-label="close sidebar" class="drawer-overlay"></label>
+                <nav class="menu bg-base-200 min-h-full w-80 p-4">
+                    <div class="h-16 flex items-center justify-center font-bold text-xl border-b border-gray-200 mb-3" :class="sidebarOpen ? 'px-4' : 'px-1'">
+                        <a href="" class="font-bold text-xl">
+                            <img src="/assets/logo.png" alt="Mediko PPDS" class="w-[130px]" :class="sidebarOpen ? 'p-1' : 'p-0'" />
+                        </a>
+                    </div>
+                    <a href="./index.html.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class=" w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-house text-lg text-base-content"></i>
+                        </div>
+                        <span class="text-sm">Homepage</span>
+                    </a>
+
+                    <a href="./dashboard.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300 active">
+                        <div class="bg-[#F1F1F3] w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-squares-four text-lg text-base-content"></i>
+                        </div>
+                        <span class="text-sm">Dashboard</span>
+                    </a>
+
+                    <a href="./dashboard-course.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class="w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-book-open text-lg text-base-content"></i>
+                        </div>
+                        <span class="text-sm">My Course</span>
+                    </a>
+
+                    <a href="./dashboard-materials.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class=" w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-notebook text-lg text-base-content"></i>
+                        </div>
+                        <span class="text-sm">Open Material</span>
+                    </a>
+
+                    <a href="./dashboard-tryout.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class="w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-file-text text-lg text-base-content"></i>
+                        </div>
+                        <span class="text-sm">Try Out</span>
+                    </a>
+
+                    <a href="./dashboard-transaction.html" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#EFF6FF]">
+                        <div class="w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-clock text-lg text-base-content"></i>
+                        </div>
+                        <span class="text-sm">Transaction History</span>
+                    </a>
+
+                    <a href="#" class="flex items-center gap-3 p-2 rounded-lg hover:bg-base-300 mt-4">
+                        <div class="w-[22px] h-[22px] items-center rounded-sm flex justify-center">
+                            <i class="ph ph-sign-out text-lg text-error"></i>
+                        </div>
+                        <span class="text-sm text-error">Sign Out</span>
+                    </a>
+                </nav>
+            </div>
 
         <script type="module" src="/src/main.js"></script>
     </body>

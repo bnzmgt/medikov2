@@ -167,9 +167,9 @@ html {
 
     /* try out */
     --tryout-unanswered: #A7A9AC;
-    --tryout-answered: #3aa0b7;
-    --tryout-current: #0061b9;
-    --tryout-warning: #eab308;
+    --tryout-answered: #086AAB;
+    --tryout-current: #101828;
+    --tryout-warning: linear-gradient(180deg, #eab308 0%, #facc15 100%);
 
     --shadow-soft: 0px 3px 14px rgba(0, 0, 0, 0.08);
 
@@ -656,4 +656,24 @@ button[disabled] {
             @apply text-secondary underline;
         }
     }
+}
+
+.watermark {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 9999;
+    opacity: 0.35;
+    pointer-events: none;
+    user-select: none;
+}
+
+.watermark img {
+    max-width: 140px;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,.8));
+}
+
+.video-js .vjs-picture-in-picture-control {
+  @apply !hidden;
 }

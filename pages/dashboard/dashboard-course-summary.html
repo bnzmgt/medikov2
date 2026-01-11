@@ -166,23 +166,23 @@
                         </span>
 
                         <div x-data="{ showPembahasan: false, showWrong: false }">
-                            <div class="item-question bg-white p-6 rounded-xl shadow-soft space-y-4">
+                            <div class="item-question bg-white p-6 rounded-xl shadow-soft space-y-4 text-md">
                                 <p class="font-medium text-gray-800">1. Pemberian oksigen aliran tinggi konsentrasi tinggi dengan :</p>
                                 <div class="question space-y-4">
-                                    <div @click="showWrong = true" class="wrong py-3 px-4 border border-[#E07C88] rounded-lg text-[#E07C88]">A. Kanul binasal</div>
+                                    <div @click="showWrong = true" class="wrong py-3 px-4 border border-[#E07C88] bg-[#E07C88]/10 rounded-lg text-[#E07C88] font-bold">A. Kanul binasal</div>
                                     <div class="py-3 px-4 rounded-lg border border-gray-200 hover:bg-gray-50">B. Sungkup muka</div>
-                                    <div class="correct border border-accent py-3 px-4 rounded-lg text-accent">C. Sungkup venturi</div>
+                                    <div class="correct border border-[#60A8A7] bg-[#60A8A7]/10 py-3 px-4 rounded-lg text-[#60A8A7] font-bold">C. Sungkup venturi <i class="ph-bold ph-check"></i></div>
                                     <div class="py-3 px-4 rounded-lg border border-gray-200 hover:bg-gray-50">D. Head book</div>
                                     <div class="py-3 px-4 rounded-lg border border-gray-200 hover:bg-gray-50">E. Nasopharyngeal airway</div>
                                 </div>
-                                <div class="flex flex-wrap gap-3 pt-2">
-                                    <button @click="showPembahasan = true" class="btn btn-md btn-accent text-white">
-                                        Pembahasan
-                                        <i class="ph ph-polygon text-xl text-white"></i>
+                                <div class="flex flex-wrap gap-5 pt-2">
+                                    <button @click="showPembahasan = true" class="btn btn-md bg-[#60A8A7] text-white rounded-lg">
+                                        <i class="ph ph-image text-xl text-white"></i>
+                                        Pembahasan                                        
                                     </button>
-                                    <a class="btn btn-md btn-error text-white">
-                                        Laporkan Soal
+                                    <a class="btn btn-md bg-[#A74B47] text-white rounded-lg">
                                         <i class="ph ph-warning-circle text-xl text-white"></i>
+                                        Laporkan Soal                                        
                                     </a>
                                 </div>
                             </div>
